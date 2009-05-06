@@ -66,6 +66,11 @@ augroup railsfiletypes
 	autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 expandtab
 augroup END
 
+augroup javascriptfiletypes
+  autocmd!
+  autocmd! FileType javascript,rails-js set ai sw=2 sts=2 expandtab
+augroup END
+
 " CakePHP syntax highlighting
 augroup cakephpfiletypes
 	autocmd!
@@ -108,7 +113,7 @@ if has("gui_running")
 	set background=dark
 	set mousehide  " Hide mouse after pressing key.
 	set mouse=a    " Mouse in all modes.
-	let Tlist_Show_Menu=1  " Enable taglist menu in Vim.app
+	" let Tlist_Show_Menu=1  " Enable taglist menu in Vim.app
 else
 	set background=dark
 endif
