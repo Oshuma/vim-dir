@@ -2,13 +2,13 @@
 " Vim Options
 "
 set backup
+set backupext=.bak
 set directory=$HOME/.vim/tmp
 set backupdir=$HOME/.vim/backups
 helptags $HOME/.vim/doc
-
-set foldmethod=syntax
+" set foldmethod=syntax
 " set foldlevelstart=1   " Close all but the top-level fold.
-set foldlevelstart=99  " All folds open.
+" set foldlevelstart=99  " All folds open.
 set hidden
 set history=100
 set nocompatible
@@ -58,12 +58,12 @@ filetype indent on
 
 " Ruby/Rails stuff
 augroup railsfiletypes
-	" Clear old autocmds in group
-	autocmd!
-	" autoindent with two spaces, always expand tabs
-	" autocmd FileType eruby set ai ts=4 sw=4 noexpandtab
-	" autocmd FileType ruby,yaml set ai sw=2 sts=2 expandtab
-	autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 expandtab
+  " Clear old autocmds in group
+  autocmd!
+  " autoindent with two spaces, always expand tabs
+  " autocmd FileType eruby set ai ts=4 sw=4 noexpandtab
+  " autocmd FileType ruby,yaml set ai sw=2 sts=2 expandtab
+  autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 expandtab
 augroup END
 
 augroup javascriptfiletypes
@@ -73,14 +73,14 @@ augroup END
 
 " CakePHP syntax highlighting
 augroup cakephpfiletypes
-	autocmd!
-	au! BufRead,BufNewFile *.ctp set filetype=php ai sw=2 sts=2 expandtab
+  autocmd!
+  au! BufRead,BufNewFile *.ctp set filetype=php ai sw=2 sts=2 expandtab
 augroup END
 
 " Template Toolkit
 augroup templatetoolkitfiletypes
-	autocmd!
-	au! BufRead,BufNewFile,BufWinEnter *.tt2 set filetype=tt2
+  autocmd!
+  au! BufRead,BufNewFile,BufWinEnter *.tt2 set filetype=tt2
 augroup END
 
 autocmd FileType make set noexpandtab
@@ -89,6 +89,7 @@ autocmd FileType make set noexpandtab
 "
 " Key Bindings
 "
+
 " Tab commands
 nmap <C-t> :tabnew<CR>
 " nmap <C-x> :tabclose<CR>
@@ -101,46 +102,45 @@ nmap <C-n> :bnext<CR>
 
 " Remap <Leader>
 let mapleader = ","
-
 " Swap the 'go to mark' commands.
 "   '    Goes to the marked line.
 "   `    Goes to the marked line *and* column.
 noremap ' `
 noremap ` '
 
-" Specific options for Gvim
+
+"
+" GUI specific options
+"
 if has("gui_running")
-	set background=dark
-	set mousehide  " Hide mouse after pressing key.
-	set mouse=a    " Mouse in all modes.
-	" let Tlist_Show_Menu=1  " Enable taglist menu in Vim.app
-else
-	set background=dark
+  set background=dark
+  set lines=45 columns=120
+  set mousehide  " Hide mouse after pressing key.
+  set mouse=a    " Mouse in all modes.
+  set cursorcolumn
+  set cursorline
+
+  match Todo /\%80v.\+/
+  " let Tlist_Show_Menu=1  " Enable taglist menu in Vim.app
 endif
 
 " Clear trailing whitespace.
 map <Leader>c :%s/\s\+$//g
-
 " Surround mappings
 vmap <Leader>s <Plug>Vsurround
 vmap <Leader>S <Plug>VSurround
 
+
 "
 " Plugin Stuff
 "
-
-" Project
-" let g:proj_flags="imsStT"
-" let g:proj_window_width=35
-" let g:proj_window_increment=40
-" nmap <silent> <F2> <Plug>ToggleProject
-" nmap <silent> <F3> :Project<CR>
 
 " rails.vim
 let g:rails_menu=2
 
 " TagList
 nnoremap <silent> <F4> :TlistToggle<CR>
+let Tlist_Ctags_Cmd='/usr/bin/ctags'
 let Tlist_GainFocus_On_ToggleOpen=1
 let Tlist_Close_On_Select=1
 let Tlist_Use_Right_Window=1
