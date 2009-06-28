@@ -1,6 +1,7 @@
 "
 " Vim Options
 "
+set background=dark
 set backup
 set backupext=.bak
 set directory=$HOME/.vim/tmp
@@ -113,6 +114,8 @@ noremap ` '
 " GUI specific options
 "
 if has("gui_running")
+  " Custom menu
+  source $HOME/.vim/custom-menu.vim
   set background=dark
   set lines=45 columns=120
   set mousehide  " Hide mouse after pressing key.
