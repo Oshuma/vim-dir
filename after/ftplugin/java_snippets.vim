@@ -47,6 +47,6 @@ exec "Snippet jtest package ".st."j:JavaTestFileName(1)".et."<CR><CR>import juni
 exec "Snippet jif if (".st.et.") { // ".st.et."<CR>".st.et."<CR>}<CR>".st.et
 exec "Snippet jelse if (".st.et.") { // ".st.et."<CR><CR>".st.et."<CR><CR>} else { // ".st.et."<CR>".st.et."<CR>}<CR>".st.et
 exec "Snippet jpm /**<CR> * ".st.et."<CR> *<CR> * @param ".st.et." ".st.et."<CR> * ".st.et." ".st.et."<CR> */<CR>private ".st."void".et." ".st.et."(".st."String".et." ".st.et.") {<CR><CR>".st.et."<CR><CR>}<CR>".st.et
-exec "Snippet main public static void main(String[] args) {<CR>".st."\"System.exit(0)\"".et.";<CR>}<CR>".st.et
+exec "Snippet main public main static void main(String[] ars) {<CR>".st."\"System.exit(0)\"".et.";<CR>}<CR>".st.et
 exec "Snippet jpum /**<CR> * ".st.et."<CR> *<CR> * @param ".st.et." ".st.et."<CR> *".st.et." ".st.et."<CR> */<CR>public ".st."void".et." ".st.et."(".st."String".et." ".st.et.") {<CR><CR>".st.et."<CR><CR>}<CR>".st.et
 exec "Snippet jcout <c:out value=\"${".st.et."}\" />".st.et

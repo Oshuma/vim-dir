@@ -9,7 +9,7 @@ function! PyCleanupArgs(text)
         return ''
     endif
     let text = substitute(a:text, '\(\w\)\s\(\w\)', '\1,\2', 'g')
-    return ', '.join(split(text, '\s*,\s*'), ', ')
+    return join(split(text, '\s*,\s*'), ', ')
 endfunction
 
 " Given a string containing a list of arguments (e.g. "one = 'test', *args,
@@ -142,7 +142,7 @@ exec "Snippet cl class ".st."ClassName".et."(".st."object".et."):
 \<CR>This class represents ".st.et."
 \<CR>\"\"\"
 \<CR>
-\<CR>def __init__(self".st."args:PyCleanupArgs(@z)".et."):
+\<CR>def __init__(self, ".st."args:PyCleanupArgs(@z)".et."):
 \<CR>\"\"\"
 \<CR>Constructor.
 \<CR>".st."args:PyGetDocstringFromArgs(@z)".et."\"\"\"
@@ -161,25 +161,27 @@ exec "Snippet bc \"\"\"<CR>".st.et."<CR>\"\"\"<CR>".st.et
 " Try, except, finally.
 exec "Snippet trye try:
 \<CR>".st.et."
-\<CR>except ".st."Exception".et.", e:
+\<CR>except Exception, e:
 \<CR>".st.et."
 \<CR>".st.et
 
 exec "Snippet tryf try:
 \<CR>".st.et."
 \<CR>finally:
+\<CR>".st.et."
 \<CR>".st.et
 
 exec "Snippet tryef try:
 \<CR>".st.et."
-\<CR>except ".st."Exception".et.", e:
+\<CR>except Exception, e:
 \<CR>".st.et."
 \<CR>finally:
+\<CR>".st.et."
 \<CR>".st.et
 
 " Other multi statement templates
 " From Panos
-exec "Snippet ifn if __name__ == '".st."\"__main__\"".et."':<CR>".st.et
+exec "Snippet ifn if __name__ == '".st."main".et."':<CR>".st.et
 exec "Snippet ifmain if __name__ == '__main__':<CR>".st.et
 
 " Shebang

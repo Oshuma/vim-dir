@@ -160,6 +160,9 @@ let g:fuzzy_matching_limit = 40
 " NERD Tree
 map <F2> :NERDTreeToggle<CR>
 
+" SnippetsEmu
+let g:snippetsEmu_key = "<S-Tab>"
+
 " MiniBufferExplorer
 " map <Leader>m :TMiniBufExplorer<CR>
 " let g:miniBufExplUseSingleClick = 1

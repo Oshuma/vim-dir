@@ -3,9 +3,9 @@
 "              ( f.ingram.lists <AT> gmail.com )
 " Description: An attempt to implement TextMate style Snippets. Features include
 "              automatic cursor placement and command execution.
-" $LastChangedDate: 2009-06-23 10:56:24 -0500 (Tue, 23 Jun 2009) $
+" $LastChangedDate$
 " Version:     1.1
-" $Revision: 150 $
+" $Revision$
 "
 " This file contains some simple functions that attempt to emulate some of the 
 " behaviour of 'Snippets' from the OS X editor TextMate, in particular the
@@ -93,7 +93,7 @@ if globpath(&rtp, 'plugin/snippetEmu.vim') != ""
   call confirm("It looks like you've got an old version of snippetsEmu installed. Please delete the file 'snippetEmu.vim' from the plugin directory. Note lack of 's'")
 endif
 
-let s:debug = 1
+let s:debug = 0
 let s:Disable = 0
 
 function! s:Debug(func, text)
@@ -176,11 +176,7 @@ function! s:SnipMapKeys()
     if s:supInstalled == 1
       exec 'imap '.g:snippetsEmu_key.' <Plug>Jumper'
     else
-      try
-        exec 'imap <unique> '.g:snippetsEmu_key.' <Plug>Jumper'
-      catch /E227/
-        exec 'imap '.g:snippetsEmu_key.' <Plug>Jumper'
-      endtry
+      exec 'imap <unique> '.g:snippetsEmu_key.' <Plug>Jumper'
     endif
   endif
 
@@ -207,16 +203,11 @@ endfunction
 " {{{ SetSearchStrings() - Set the search string. Checks for buffer dependence
 function! s:SetSearchStrings()
   let [snip_start_tag, snip_elem_delim, snip_end_tag] = s:SetLocalTagVars()
-  let snip_start_tag = substitute(snip_start_tag, ".", "\\\\&", "g")
-  let snip_end_tag = substitute(snip_end_tag, ".", "\\\\&", "g")
-  let snip_elem_delim = substitute(snip_elem_delim, ".", "\\\\&", "g")
-  "call s:Debug("SetSearchStrings", "Start tag is now: ".snip_start_tag)
   let b:search_str = snip_start_tag.'\([^'.
         \snip_start_tag.snip_end_tag.
         \'[:punct:] \t]\{-}\|".\{-}"\)\('.
         \snip_elem_delim.
         \'[^'.snip_end_tag.snip_start_tag.']\{-1,}\)\?'.snip_end_tag
-  "call s:Debug("SetSearchStrings", "Searching on this string: ".b:search_str)
   let b:search_commandVal = "[^".snip_elem_delim."]*"
   let b:search_endVal = "[^".snip_end_tag."]*"
 endfunction
@@ -682,7 +673,7 @@ function! <SID>Jumper()
   " First we'll check that the user hasn't just typed a snippet to expand
   let origword = matchstr(strpart(getline("."), 0, s:curCurs), '\(^\|\s\)\S\{-}$')
   let origword = substitute(origword, '\s', "", "")
-  "call s:Debug("Jumper", "Original word based on whitespace was: ".origword)
+  "call s:Debug("Jumper", "Original word was: ".origword)
   let word = s:Hash(origword)
   " The following code is lifted from the imaps.vim script - Many
   " thanks for the inspiration to add the TextMate compatibility
@@ -701,7 +692,7 @@ function! <SID>Jumper()
   if found == 0
     " Check using keyword boundary
     let origword = matchstr(strpart(getline("."), 0, s:curCurs), '\k\{-}$')
-    "call s:Debug("Jumper", "Original word based on keyword boundary was: ".origword)
+    "call s:Debug("Jumper", "Original word was: ".origword)
     let word = s:Hash(origword)
     if exists('b:trigger_'.word)
       exe 'let rhs = b:trigger_'.word
@@ -725,9 +716,8 @@ function! <SID>Jumper()
     let b:search_sav = @/
     " Count the number of lines in the rhs
     let move_up = ""
-    "call s:Debug("Jumper", "Len split RHS: ".len(split(rhs, "\<CR>", 1)))
-    if len(split(rhs, "\<CR>", 1)) - 1 != 0
-      let move_up = len(split(rhs, "\<CR>", 1)) - 1
+    if len(split(rhs, "\<CR>")) - 1 != 0
+      let move_up = len(split(rhs, "\<CR>")) - 1
       let move_up = move_up."\<Up>"
     endif
 
@@ -749,14 +739,8 @@ function! <SID>Jumper()
           "call s:Debug("Jumper", "Could not find this key in the dict: ".b:tag_name)
         endtry
       endif
-      "call s:Debug("Jumper", "We need to delete the start tag")
-      let tag_index = strridx(strpart(getline("."), 0, s:curCurs), snip_start_tag)
-      "call s:Debug("Jumper", "Start tag is at ".tag_index)
-      "call s:Debug("Jumper", "We are at ".s:curCurs)
-      let move_left = substitute(strpart(getline("."), 0, s:curCurs-tag_index-4), ".", "\<Left>", "g")
-      let move_right = substitute(move_left, "\<Left>", "\<Right>", "g")
-      "call s:Debug("Jumper", "Move left len: ".strlen(move_left))
-      let bkspc = bkspc.move_left.substitute(snip_start_tag, '.', "\<BS>", "g").move_right
+      "call s:Debug("Jumper", "Deleting start tag")
+      let bkspc = bkspc.substitute(snip_start_tag, '.', "\<BS>", "g")
       "call s:Debug("Jumper", "Deleting end tag")
       let delEndTag = substitute(snip_end_tag, '.', "\<Del>", "g")
       "call s:Debug("Jumper", "Deleting ".s:StrLen(delEndTag)." characters")
