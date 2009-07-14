@@ -3,5 +3,5 @@
 "
 
 " Util
-:menu <silent> Util.Wrap.On  :set wrap
-:menu <silent> Util.Wrap.Off :set nowrap
+:menu <silent> Util.Wrap <ESC>:set wrap<CR>
+:menu <silent> Util.NoWrap <ESC>:set nowrap<CR>

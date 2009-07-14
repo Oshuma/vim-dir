@@ -52,3 +52,16 @@ exec "Snippet rps render :partial => \"".st."item".et."\", :status => ".st.et
 exec "Snippet ril render :inline => \"".st.et."\", :locals => { ".st.et." => \"".st."value".et."\"".st.et." }".st.et
 exec "Snippet rtl render :text => \"".st.et."\", :layout => \"".st.et."\"".st.et
 exec "Snippet reca redirect_to :controller => \"".st."items".et."\", :action => \"".st."list".et."\"".st.et
+
+" Model Validations
+exec "Snippet valao validates_acceptance_of :".st.et
+exec "Snippet valas validates_associated :".st.et
+exec "Snippet valco validates_confirmation_of :".st.et
+exec "Snippet vale  validates_each :".st.et." do |record, attr, value|<CR>".st.et."<CR>end".st.et
+exec "Snippet valeo validates_exclusion_of :".st.et.", :in => ".st.et
+exec "Snippet valfo validates_format_of :".st.et.", :with => /".st.et."/".st.et
+exec "Snippet valio validates_inclusion_of :".st.et.", :in => ".st.et
+exec "Snippet vallo validates_length_of :".st.et.", :within => ".st.et."..".st.et
+exec "Snippet valno validates_numericality_of :".st.et
+exec "Snippet valpo validates_presence_of :".st.et
+exec "Snippet valuo validates_uniqueness_of :".st.et

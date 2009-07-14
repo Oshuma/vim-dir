@@ -123,12 +123,12 @@ if has("gui_running")
   set cursorcolumn
   set cursorline
 
-  match Todo /\%80v.\+/
+  " match Todo /\%80v.\+/
   " let Tlist_Show_Menu=1  " Enable taglist menu in Vim.app
 endif
 
 " Clear trailing whitespace.
-map <Leader>c :%s/\s\+$//g
+map <Leader>c :%s/\s\+$//g<CR>
 " Surround mappings
 vmap <Leader>s <Plug>Vsurround
 vmap <Leader>S <Plug>VSurround
@@ -161,7 +161,7 @@ let g:fuzzy_matching_limit = 40
 map <F2> :NERDTreeToggle<CR>
 
 " SnippetsEmu
-let g:snippetsEmu_key = "<S-Tab>"
+" let g:snippetsEmu_key = "<S-Tab>"
 
 " MiniBufferExplorer
 " map <Leader>m :TMiniBufExplorer<CR>

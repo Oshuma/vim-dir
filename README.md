@@ -1,3 +1,3 @@
 ## ~/.vim/
 
-![Vim IDE](vim-ide.png "Vim IDE")
+Eat it, bitches.
