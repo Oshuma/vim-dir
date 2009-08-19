@@ -86,6 +86,8 @@ augroup END
 
 autocmd FileType make set noexpandtab
 
+" nginx config
+" au BufRead,BufNewFile /path/to/nginx/configs/* set ft=nginx
 
 "
 " Key Bindings

@@ -6,6 +6,8 @@ let st = g:snip_start_tag
 let et = g:snip_end_tag
 let cd = g:snip_elem_delim
 
+exec "Snippet debug $stdout.puts \"-- DEBUG: ".st.et."\""
+
 exec "Snippet class class ".st."className".et."<CR>".st.et."<CR>end"
 exec "Snippet def def ".st."methodName".et."<CR>".st.et."<CR>end"
 exec "Snippet begin begin<CR>".st.et."<CR>rescue ".st."Exception".et." => ".st."e".et."<CR>".st.et."<CR>end"
