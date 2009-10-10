@@ -7,9 +7,9 @@ set backupext=.bak
 set directory=$HOME/.vim/tmp
 set backupdir=$HOME/.vim/backups
 helptags $HOME/.vim/doc
-" set foldmethod=syntax
+set foldmethod=indent
 " set foldlevelstart=1   " Close all but the top-level fold.
-" set foldlevelstart=99  " All folds open.
+set foldlevelstart=99  " All folds open.
 set hidden
 set history=100
 set nocompatible

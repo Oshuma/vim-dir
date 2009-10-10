@@ -6,7 +6,7 @@ let st = g:snip_start_tag
 let et = g:snip_end_tag
 let cd = g:snip_elem_delim
 
-exec "Snippet debug border: 3px solid red;".st.et
+exec "Snippet debug border: 3px solid ".st."red".et."; /* DEBUG */".st.et
 
 exec "Snippet visibility ".st.et.";".st.et
 exec "Snippet list list-style-image: url(".st.et.");".st.et
