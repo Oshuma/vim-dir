@@ -6,7 +6,7 @@ let st = g:snip_start_tag
 let et = g:snip_end_tag
 let cd = g:snip_elem_delim
 
-exec "Snippet debug logger.debug(\"-- DEBUG: ".st.et."\")"
+exec "Snippet debug logger.debug(\"-- DEBUG: #{".st.et."}\")"
 
 exec "Snippet mrnt rename_table \"".st."oldTableName".et."\", \"".st."newTableName".et."\"".st.et
 exec "Snippet rfu render :file => \"".st."filepath".et."\", :use_full_path => ".st."false".et.st.et

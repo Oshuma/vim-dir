@@ -72,6 +72,8 @@ augroup javascriptfiletypes
   autocmd! FileType javascript,rails-js set ai sw=2 sts=2 expandtab
 augroup END
 
+au BufRead,BufNewFile *.js set ft=javascript.jquery
+
 " CakePHP syntax highlighting
 augroup cakephpfiletypes
   autocmd!
