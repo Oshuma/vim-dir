@@ -72,7 +72,7 @@ augroup javascriptfiletypes
   autocmd! FileType javascript,rails-js set ai sw=2 sts=2 expandtab
 augroup END
 
-au BufRead,BufNewFile *.js set ft=javascript.jquery
+au BufRead,BufNewFile *.js set filetype=javascript.jquery
 
 " CakePHP syntax highlighting
 augroup cakephpfiletypes
@@ -87,6 +87,8 @@ augroup templatetoolkitfiletypes
 augroup END
 
 autocmd FileType make set noexpandtab
+
+au BufRead,BufNewFile *.ru set filetype=ruby
 
 " nginx config
 " au BufRead,BufNewFile /path/to/nginx/configs/* set ft=nginx
