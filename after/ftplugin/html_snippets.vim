@@ -53,7 +53,12 @@ exec "Snippet table <table border=\"".st.et."\"".st.et." cellpadding=\"".st.et."
 exec "Snippet link <link rel=\"".st.et."\" href=\"".st.et."\" type=\"text/css\" media=\"".st.et."\" title=\"".st.et."\" charset=\"".st.et."\" />"
 exec "Snippet form <form action=\"".st.et."\" method=\"".st.et."\"><CR>".st.et."<CR><CR><p><input type=\"submit\" value=\"Continue &rarr;\" /></p><CR></form><CR>".st.et
 exec "Snippet ref <a href=\"".st.et."\">".st.et."</a>".st.et
-exec "Snippet h1 <h1 id=\"".st.et."\">".st.et."</h1>".st.et
+exec "Snippet h1 <h1>".st.et."</h1>"
+exec "Snippet h2 <h2>".st.et."</h2>"
+exec "Snippet h3 <h3>".st.et."</h3>"
+exec "Snippet h4 <h4>".st.et."</h4>"
+exec "Snippet ul <ul>".st.et."</ul>"
+exec "Snippet li <li>".st.et."</li>"
 exec "Snippet input <input type=\"".st.et."\" name=\"".st.et."\" value=\"".st.et."\" ".st.et."/>".st.et
 exec "Snippet style <style type=\"text/css\" media=\"screen\"><CR>/* <![CDATA[ */<CR>".st.et."<CR>/* ]]> */<CR></style><CR>".st.et
 exec "Snippet base <base href=\"".st.et."\"".st.et." />".st.et
