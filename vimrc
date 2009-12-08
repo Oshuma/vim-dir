@@ -149,7 +149,7 @@ let g:rails_menu=2
 
 " TagList
 nnoremap <silent> <F4> :TlistToggle<CR>
-let Tlist_Ctags_Cmd='/usr/bin/ctags'
+" let Tlist_Ctags_Cmd='/usr/bin/ctags'
 let Tlist_GainFocus_On_ToggleOpen=1
 let Tlist_Close_On_Select=1
 let Tlist_Use_Right_Window=1
