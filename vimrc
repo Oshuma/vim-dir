@@ -7,7 +7,7 @@ set backupext=.bak
 set directory=$HOME/.vim/tmp
 set backupdir=$HOME/.vim/backups
 helptags $HOME/.vim/doc
-set foldmethod=indent
+set foldmethod=syntax
 " set foldlevelstart=1   " Close all but the top-level fold.
 set foldlevelstart=99  " All folds open.
 set hidden
@@ -49,6 +49,7 @@ runtime macros/matchit.vim
 set listchars=tab:>-,trail:.,eol:~
 " map <silent> <Leader>s :set nolist!<CR>
 
+colorscheme desert
 syntax on
 filetype on
 filetype plugin on
@@ -89,6 +90,7 @@ augroup END
 autocmd FileType make set noexpandtab
 
 au BufRead,BufNewFile *.ru set filetype=ruby
+au BufRead,BufNewFile *.ooc set filetype=ooc
 
 " nginx config
 " au BufRead,BufNewFile /path/to/nginx/configs/* set ft=nginx
@@ -120,18 +122,17 @@ noremap ` '
 " GUI specific options
 "
 if has("gui_running")
-  " Custom menu
-  source $HOME/.vim/custom-menu.vim
+  colorscheme default
   set background=dark
   set lines=45 columns=120
   set mousehide  " Hide mouse after pressing key.
   set mouse=a    " Mouse in all modes.
   set cursorcolumn
   set cursorline
-
-  " match Todo /\%80v.\+/
-  " let Tlist_Show_Menu=1  " Enable taglist menu in Vim.app
 endif
+
+" Custom menu
+source $HOME/.vim/custom-menu.vim
 
 " Clear trailing whitespace.
 map <Leader>c :%s/\s\+$//g<CR>
@@ -149,7 +150,7 @@ let g:rails_menu=2
 
 " TagList
 nnoremap <silent> <F4> :TlistToggle<CR>
-" let Tlist_Ctags_Cmd='/usr/bin/ctags'
+let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 let Tlist_GainFocus_On_ToggleOpen=1
 let Tlist_Close_On_Select=1
 let Tlist_Use_Right_Window=1

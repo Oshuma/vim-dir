@@ -61,7 +61,7 @@ exec "Snippet valas validates_associated :".st.et
 exec "Snippet valco validates_confirmation_of :".st.et
 exec "Snippet vale  validates_each :".st.et." do |record, attr, value|<CR>".st.et."<CR>end".st.et
 exec "Snippet valeo validates_exclusion_of :".st.et.", :in => ".st.et
-exec "Snippet valfo validates_format_of :".st.et.", :with => /".st.et."/".st.et
+exec "Snippet valfo validates_format_of :".st.et.", :with => /".st.et."/"
 exec "Snippet valio validates_inclusion_of :".st.et.", :in => ".st.et
 exec "Snippet vallo validates_length_of :".st.et.", :within => ".st.et."..".st.et
 exec "Snippet valno validates_numericality_of :".st.et
