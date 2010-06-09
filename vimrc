@@ -75,6 +75,8 @@ augroup END
 
 au BufRead,BufNewFile *.js set filetype=javascript.jquery
 
+autocmd FileType java set ai sw=4 sts=4 expandtab
+
 " CakePHP syntax highlighting
 augroup cakephpfiletypes
   autocmd!
@@ -122,12 +124,13 @@ noremap ` '
 " GUI specific options
 "
 if has("gui_running")
-  colorscheme default
-  set background=dark
+  " colorscheme default
+  colorscheme desert
+  " set background=dark
   set lines=45 columns=120
   set mousehide  " Hide mouse after pressing key.
   set mouse=a    " Mouse in all modes.
-  set cursorcolumn
+  " set cursorcolumn
   set cursorline
 endif
 
@@ -150,7 +153,8 @@ let g:rails_menu=2
 
 " TagList
 nnoremap <silent> <F4> :TlistToggle<CR>
-let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+let Tlist_Ctags_Cmd='/usr/bin/ctags'
+let Tlist_Sort_Type = "name"
 let Tlist_GainFocus_On_ToggleOpen=1
 let Tlist_Close_On_Select=1
 let Tlist_Use_Right_Window=1
