@@ -200,3 +200,5 @@ exec "Snippet unittest if __name__ == '__main__':
 \<CR>
 \<CR>def runTest(self):
 \<CR>".st.et
+
+exec "Snippet debug print \"-- DEBUG: ".st.et."\""

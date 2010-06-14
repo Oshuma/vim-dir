@@ -140,9 +140,11 @@ source $HOME/.vim/custom-menu.vim
 " Clear trailing whitespace.
 map <Leader>c :%s/\s\+$//g<CR>
 " Surround mappings
-vmap <Leader>s <Plug>Vsurround
-vmap <Leader>S <Plug>VSurround
+" vmap <Leader>s <Plug>Vsurround
+" vmap <Leader>S <Plug>VSurround
 
+map <Leader>s :w<CR>
+map <Leader>S :wa<CR>
 
 "
 " Plugin Stuff
