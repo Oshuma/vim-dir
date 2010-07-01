@@ -146,6 +146,11 @@ map <Leader>c :%s/\s\+$//g<CR>
 map <Leader>s :w<CR>
 map <Leader>S :wa<CR>
 
+map <Leader>y "+y<CR>
+map <Leader>p "+p<CR>
+map <Leader>P "+P<CR>
+
+
 "
 " Plugin Stuff
 "
