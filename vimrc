@@ -177,6 +177,7 @@ let g:fuzzy_matching_limit = 40
 
 " NERD Tree
 map <F2> :NERDTreeToggle<CR>
+let NERDTreeQuitOnOpen=1
 
 " SnippetsEmu
 " let g:snippetsEmu_key = "<S-Tab>"
