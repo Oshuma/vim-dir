@@ -119,6 +119,9 @@ let mapleader = ","
 noremap ' `
 noremap ` '
 
+" Shift-K doc links
+au BufNewFile,BufRead *.java nmap K yaW:!google-chrome "http://www.google.com/search?q=java ""<CR><CR>
+
 
 "
 " GUI specific options
