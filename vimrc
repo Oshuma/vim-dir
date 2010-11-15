@@ -1,6 +1,8 @@
 "
 " Vim Options
 "
+set nocompatible  " This should be first.
+
 set background=dark
 set backup
 set backupext=.bak
@@ -12,8 +14,7 @@ set foldmethod=syntax
 set foldlevelstart=99  " All folds open.
 set hidden
 set history=100
-set nocompatible
-set nohlsearch
+" set nohlsearch
 set noincsearch
 set nowrap
 set ruler
@@ -123,6 +124,8 @@ noremap ` '
 " Shift-K doc links
 au BufNewFile,BufRead *.java nmap K yaW:!google-chrome "http://www.google.com/search?q=java ""<CR><CR>
 
+" Clear highlighted search with <Leader>/
+nmap <silent> ,/ :let @/=""<CR>
 
 "
 " GUI specific options
