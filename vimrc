@@ -91,6 +91,7 @@ augroup END
 
 autocmd FileType make set noexpandtab
 
+au BufRead,BufNewFile Gemfile set filetype=ruby
 au BufRead,BufNewFile *.ru set filetype=ruby
 au BufRead,BufNewFile *.ooc set filetype=ooc
 
