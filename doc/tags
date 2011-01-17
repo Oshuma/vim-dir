@@ -133,6 +133,7 @@ NERDTreeOptions	NERD_tree.txt	/*NERDTreeOptions*
 NERDTreeRender()	NERD_tree.txt	/*NERDTreeRender()*
 NERD_tree.txt	NERD_tree.txt	/*NERD_tree.txt*
 TCommentDefineType()	tComment.txt	/*TCommentDefineType()*
+Tabular.txt	Tabular.txt	/*Tabular.txt*
 Tlist_Get_Tag_Prototype_By_Line()	taglist.txt	/*Tlist_Get_Tag_Prototype_By_Line()*
 Tlist_Get_Tagname_By_Line()	taglist.txt	/*Tlist_Get_Tagname_By_Line()*
 Tlist_Set_App()	taglist.txt	/*Tlist_Set_App()*
@@ -354,6 +355,12 @@ tComment-Key-Bindings	tComment.txt	/*tComment-Key-Bindings*
 tComment-Usage	tComment.txt	/*tComment-Usage*
 tComment-commands	tComment.txt	/*tComment-commands*
 tComment.txt	tComment.txt	/*tComment.txt*
+tabular	Tabular.txt	/*tabular*
+tabular-intro	Tabular.txt	/*tabular-intro*
+tabular-scripting	Tabular.txt	/*tabular-scripting*
+tabular-toc	Tabular.txt	/*tabular-toc*
+tabular-walkthrough	Tabular.txt	/*tabular-walkthrough*
+tabular.vim	Tabular.txt	/*tabular.vim*
 taglist-commands	taglist.txt	/*taglist-commands*
 taglist-debug	taglist.txt	/*taglist-debug*
 taglist-extend	taglist.txt	/*taglist-extend*
