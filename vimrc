@@ -1,6 +1,9 @@
 "
 " Vim Options
 "
+" TODO: Split this beast up.
+
+
 set nocompatible  " This should be first.
 
 set background=dark
@@ -14,7 +17,7 @@ set foldmethod=syntax
 set foldlevelstart=99  " All folds open.
 set hidden
 set history=100
-" set nohlsearch
+set nohlsearch
 set noincsearch
 set nowrap
 set ruler
@@ -146,6 +149,7 @@ source $HOME/.vim/custom-menu.vim
 
 " Clear trailing whitespace.
 map <Leader>c :%s/\s\+$//g<CR>
+
 " Surround mappings
 " vmap <Leader>s <Plug>Vsurround
 " vmap <Leader>S <Plug>VSurround
@@ -156,6 +160,11 @@ map <Leader>S :wa<CR>
 map <Leader>y "+y<CR>
 map <Leader>p "+p<CR>
 map <Leader>P "+P<CR>
+
+if exists(":Tabularize")
+  map <Leader>a= :Tabularize /=<CR>
+  map <Leader>a- :Tabularize /-<CR>
+endif
 
 
 "
