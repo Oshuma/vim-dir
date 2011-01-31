@@ -11,15 +11,16 @@ set backup
 set backupext=.bak
 set directory=$HOME/.vim/tmp
 set backupdir=$HOME/.vim/backups
-helptags $HOME/.vim/doc
-set foldmethod=syntax
-" set foldlevelstart=1   " Close all but the top-level fold.
-set foldlevelstart=99  " All folds open.
+" set foldmethod=syntax
+set foldmethod=indent
+set foldlevelstart=1   " Close all but the top-level fold.
+" set foldlevelstart=99  " All folds open.
 set hidden
 set history=100
-set nohlsearch
+set hlsearch
 set noincsearch
 set nowrap
+" set number
 set ruler
 set scrolloff=2
 set title
@@ -32,6 +33,9 @@ set smarttab
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
+
+" Compile helptags.
+helptags $HOME/.vim/doc
 
 " Status line shit.
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v][%p%%]\ [LINES=%L]
@@ -161,11 +165,6 @@ map <Leader>y "+y<CR>
 map <Leader>p "+p<CR>
 map <Leader>P "+P<CR>
 
-if exists(":Tabularize")
-  map <Leader>a= :Tabularize /=<CR>
-  map <Leader>a- :Tabularize /-<CR>
-endif
-
 
 "
 " Plugin Stuff
@@ -194,6 +193,10 @@ let g:fuzzy_matching_limit = 40
 " NERD Tree
 map <F2> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen=1
+
+" Tabularize
+map <Leader>a= :Tabularize /=<CR>
+map <Leader>a- :Tabularize /-<CR>
 
 " SnippetsEmu
 " let g:snippetsEmu_key = "<S-Tab>"
