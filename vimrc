@@ -141,7 +141,8 @@ if has("gui_running")
   " colorscheme default
   colorscheme desert
   " set background=dark
-  set lines=45 columns=120
+  " set lines=45 columns=120
+  set guioptions=aegimrLt
   set mousehide  " Hide mouse after pressing key.
   set mouse=a    " Mouse in all modes.
   " set cursorcolumn
