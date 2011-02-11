@@ -186,7 +186,7 @@ let Tlist_Enable_Fold_Column=0
 let Tlist_Inc_Winwidth=0  " Don't auto-resize the vim window.
 
 " FuzzyFinder
-map <Leader>t :FuzzyFinderFile<CR>
+" map <Leader>t :FuzzyFinderFile<CR>
 map <Leader>b :FuzzyFinderBuffer<CR>
 let g:fuzzy_ignore = "*.log"
 let g:fuzzy_matching_limit = 40
@@ -198,6 +198,11 @@ let NERDTreeQuitOnOpen=1
 " Tabularize
 map <Leader>a= :Tabularize /=<CR>
 map <Leader>a- :Tabularize /-<CR>
+
+" Command-T
+let g:CommandTMaxFiles=5000
+let g:CommandTMaxHeight=20
+let g:CommandTCancelMap='<ESC>'
 
 " SnippetsEmu
 " let g:snippetsEmu_key = "<S-Tab>"
