@@ -110,6 +110,14 @@ au BufRead,BufNewFile *.ooc set filetype=ooc
 " Key Bindings
 "
 
+" Remap <Leader>
+let mapleader = ","
+" Swap the 'go to mark' commands.
+"   '    Goes to the marked line.
+"   `    Goes to the marked line *and* column.
+noremap ' `
+noremap ` '
+
 " Tab commands
 nmap <C-t> :tabnew<CR>
 " nmap <C-x> :tabclose<CR>
@@ -120,16 +128,12 @@ nmap <C-l> :tabn<CR>
 nmap <C-p> :bprevious<CR>
 nmap <C-n> :bnext<CR>
 
-" Remap <Leader>
-let mapleader = ","
-" Swap the 'go to mark' commands.
-"   '    Goes to the marked line.
-"   `    Goes to the marked line *and* column.
-noremap ' `
-noremap ` '
+" Fold commands
+nmap <Leader>f zO
+nmap <Leader>F zc
 
 " Shift-K doc links
-au BufNewFile,BufRead *.java nmap K yaW:!google-chrome "http://www.google.com/search?q=java ""<CR><CR>
+" au BufNewFile,BufRead *.java nmap K yaW:!google-chrome "http://www.google.com/search?q=java ""<CR><CR>
 
 " Clear highlighted search with <Leader>/
 nmap <silent> ,/ :let @/=""<CR>
@@ -203,6 +207,7 @@ map <Leader>a- :Tabularize /-<CR>
 let g:CommandTMaxFiles=5000
 let g:CommandTMaxHeight=20
 let g:CommandTCancelMap='<ESC>'
+let g:CommandTAcceptSelectionSplitMap='<C-o>'
 
 " SnippetsEmu
 " let g:snippetsEmu_key = "<S-Tab>"
