@@ -130,7 +130,7 @@ nmap <C-n> :bnext<CR>
 
 " Fold commands
 nmap <Leader>f zO
-nmap <Leader>F zc
+nmap <Leader>F zR
 
 " Shift-K doc links
 " au BufNewFile,BufRead *.java nmap K yaW:!google-chrome "http://www.google.com/search?q=java ""<CR><CR>
