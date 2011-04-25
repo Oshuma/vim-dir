@@ -17,6 +17,7 @@ Bundle 'surround.vim'
 Bundle 'tComment'
 Bundle 'The-NERD-tree'
 Bundle 'taglist.vim'
+Bundle 'ZoomWin'
 
 
 "
