@@ -204,10 +204,11 @@ map <Leader>a= :Tabularize /=<CR>
 map <Leader>a- :Tabularize /-<CR>
 
 " Command-T
+let g:CommandTAcceptSelectionSplitMap='<C-o>'
+let g:CommandTCancelMap='<ESC>'
+let g:CommandTMatchWindowAtTop=1
 let g:CommandTMaxFiles=5000
 let g:CommandTMaxHeight=20
-let g:CommandTCancelMap='<ESC>'
-let g:CommandTAcceptSelectionSplitMap='<C-o>'
 
 " SnippetsEmu
 " let g:snippetsEmu_key = "<S-Tab>"
