@@ -1,3 +1,0 @@
-## ~/.vim/
-
-Eat it, bitches.
