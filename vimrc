@@ -11,6 +11,8 @@ Bundle 'Command-T'
 Bundle 'fugitive.vim'
 Bundle 'L9'
 Bundle 'FuzzyFinder'
+Bundle 'rails.vim'
+Bundle 'snipMate'
 Bundle 'surround.vim'
 Bundle 'tComment'
 Bundle 'The-NERD-tree'
@@ -46,6 +48,16 @@ set tabstop=2
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v][%p%%]\ [LINES=%L]
 set laststatus=2
 
+" Better matching with the % command
+runtime macros/matchit.vim
+
+" Enable the menu in console mode.
+runtime menu.vim
+set cpoptions-=<
+set wildmenu
+set wildcharm=<C-Z>
+
+
 "
 " Plugin options
 "
@@ -72,7 +84,7 @@ let Tlist_Inc_Winwidth = 0 " Don't auto-resize the vim window.
 
 
 "
-" Key Binds
+" Key / Command Binds
 "
 let mapleader = ','
 
@@ -82,6 +94,12 @@ noremap ` '
 
 " Use ':w!!' to write a file with sudo.
 cmap w!! %!sudo tee > /dev/null %
+
+nnoremap <F1> :emenu <C-Z>
+nnoremap <silent> <F2> :NERDTreeToggle<CR>
+nnoremap <silent> <F4> :TlistToggle<CR>
+
+map <Leader>b :FufBuffer<CR>
 
 " Clear trailing whitespace.
 map <Leader>c :%s/\s\+$//g<CR>
@@ -105,10 +123,6 @@ map <Leader>S :wa<CR>
 map <Leader>y "+y<CR>
 map <Leader>p "+p<CR>
 map <Leader>P "+P<CR>
-
-nnoremap <F2> :NERDTreeToggle<CR>
-nnoremap <silent> <F4> :TlistToggle<CR>
-map <Leader>b :FufBuffer<CR>
 
 " This must be last.
 filetype plugin indent on
