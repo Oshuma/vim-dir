@@ -58,6 +58,12 @@ set cpoptions-=<
 set wildmenu
 set wildcharm=<C-Z>
 
+" GUI specific options
+if has("gui_running")
+  " Remove the toolbar.
+  set guioptions-=T
+end
+
 
 "
 " Plugin options
