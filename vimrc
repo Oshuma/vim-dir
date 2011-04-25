@@ -1,0 +1,114 @@
+set nocompatible
+filetype off
+
+"
+" Vundle
+"
+set rtp+=~/.vim/vundle.git/
+call vundle#rc()
+
+Bundle 'Command-T'
+Bundle 'fugitive.vim'
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+Bundle 'surround.vim'
+Bundle 'tComment'
+Bundle 'The-NERD-tree'
+Bundle 'taglist.vim'
+
+
+"
+" Vim options
+"
+colorscheme desert
+set backup
+set backupdir=$HOME/.vim/backups
+set backupext=.bak
+set directory=$HOME/.vim/tmp
+set hidden
+set history=100
+set hlsearch
+set noincsearch
+set nowrap
+set ruler
+set scrolloff=2
+set title
+
+" Indenting shit
+set autoindent
+set backspace=start,eol,indent
+set expandtab
+set smarttab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v][%p%%]\ [LINES=%L]
+set laststatus=2
+
+"
+" Plugin options
+"
+let g:CommandTAcceptSelectionSplitMap = '<C-o>'
+let g:CommandTCancelMap = '<ESC>'
+let g:CommandTMatchWindowAtTop = 1
+let g:CommandTMaxFiles = 5000
+let g:CommandTMaxHeight = 20
+
+let g:fuzzy_ignore = '*.log'
+let g:fuzzy_matching_limit = 40
+
+let NERDTreeQuitOnOpen = 1
+
+" taglist.vim
+let Tlist_Ctags_Cmd = '/usr/bin/ctags'
+let Tlist_Sort_Type = 'name'
+let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_Close_On_Select = 1
+let Tlist_Use_Right_Window = 1
+let Tlist_WinWidth = 35
+let Tlist_Enable_Fold_Column = 0
+let Tlist_Inc_Winwidth = 0 " Don't auto-resize the vim window.
+
+
+"
+" Key Binds
+"
+let mapleader = ','
+
+" Swap the 'go to mark' cursor/column keys.
+noremap ' `
+noremap ` '
+
+" Use ':w!!' to write a file with sudo.
+cmap w!! %!sudo tee > /dev/null %
+
+" Clear trailing whitespace.
+map <Leader>c :%s/\s\+$//g<CR>
+
+" Clear highlighted search with <Leader>/
+nmap <silent> <Leader>/ :let @/=""<CR>
+
+nmap <C-t> :tabnew<CR>
+nmap <C-h> :tabp<CR>
+nmap <C-l> :tabn<CR>
+
+nmap <C-p> :bprevious<CR>
+nmap <C-n> :bnext<CR>
+
+nmap <Leader>f zO
+nmap <Leader>F zR
+
+map <Leader>s :w<CR>
+map <Leader>S :wa<CR>
+
+map <Leader>y "+y<CR>
+map <Leader>p "+p<CR>
+map <Leader>P "+P<CR>
+
+nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <silent> <F4> :TlistToggle<CR>
+map <Leader>b :FufBuffer<CR>
+
+" This must be last.
+filetype plugin indent on
