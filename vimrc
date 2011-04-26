@@ -14,6 +14,7 @@ Bundle 'FuzzyFinder'
 Bundle 'rails.vim'
 Bundle 'snipMate'
 Bundle 'surround.vim'
+Bundle 'Tabular'
 Bundle 'tComment'
 Bundle 'The-NERD-tree'
 Bundle 'taglist.vim'
@@ -59,6 +60,9 @@ runtime menu.vim
 set cpoptions-=<
 set wildmenu
 set wildcharm=<C-Z>
+
+" Use 4 spaces for tabs in java files.
+autocmd FileType java set autoindent shiftwidth=4 softtabstop=4 expandtab
 
 " GUI specific options
 if has("gui_running")
@@ -110,11 +114,13 @@ nnoremap <silent> <F4> :TlistToggle<CR>
 
 map <Leader>b :FufBuffer<CR>
 
-" Clear trailing whitespace.
-map <Leader>c :%s/\s\+$//g<CR>
-
 " Clear highlighted search with <Leader>/
 nmap <silent> <Leader>/ :let @/=""<CR>
+
+" Clear trailing whitespace (and clear the previous highlighted search).
+map <silent> <Leader>c :%s/\s\+$//g<CR><Leader>/
+
+map <Leader>a= :Tabularize /=<CR>
 
 nmap <C-t> :tabnew<CR>
 nmap <C-h> :tabp<CR>
