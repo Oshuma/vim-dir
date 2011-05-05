@@ -1,4 +1,4 @@
 snippet db
-	STDOUT.puts "-- DEBUG: ${1:message}"
+	STDOUT.puts "-- DEBUG: ${1:message}"${2}
 snippet dbo
-	STDOUT.puts "-- DEBUG: #{${1:object}}"
+	STDOUT.puts "-- DEBUG: ${3}#{${1:object}${2:.inspect}}"${4}
