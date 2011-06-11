@@ -109,10 +109,6 @@ let mapleader = ','
 noremap ' `
 noremap ` '
 
-" Re-select after indenting.
-vnoremap < <gv
-vnoremap > >gv
-
 " Use ':w!!' to write a file with sudo.
 cmap w!! %!sudo tee > /dev/null %
 
