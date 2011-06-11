@@ -2,7 +2,7 @@
 
 ## Quick Install
 
-    $ bash < <(curl -s https://github.com/Oshuma/vim-dir/raw/master/install.sh)
+    $ bash < <(curl -s https://raw.github.com/Oshuma/vim-dir/master/install.sh)
 
 ## Manual Install
 
