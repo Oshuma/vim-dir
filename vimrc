@@ -134,7 +134,7 @@ nmap <C-l> :tabn<CR>
 nmap <C-p> :bprevious<CR>
 nmap <C-n> :bnext<CR>
 
-nmap <Leader>f :set foldlevel=2<CR>
+nmap <Leader>f :set foldlevel=1<CR>
 nmap <Leader>F zR
 
 map <Leader>s :w<CR>
