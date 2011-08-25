@@ -30,7 +30,8 @@ set backupdir=$HOME/.vim/backups
 set backupext=.bak
 set directory=$HOME/.vim/tmp
 set foldmethod=indent
-set foldlevelstart=1 " Close all but the top-level fold.
+" set foldlevelstart=1  " Close all but the top-level fold.
+set foldlevelstart=9999 " All folds open.
 set hidden
 set history=100
 set hlsearch
@@ -133,7 +134,7 @@ nmap <C-l> :tabn<CR>
 nmap <C-p> :bprevious<CR>
 nmap <C-n> :bnext<CR>
 
-nmap <Leader>f zO
+nmap <Leader>f :set foldlevel=2<CR>
 nmap <Leader>F zR
 
 map <Leader>s :w<CR>
