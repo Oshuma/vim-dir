@@ -62,8 +62,8 @@ set cpoptions-=<
 set wildmenu
 set wildcharm=<C-Z>
 
-" Use 4 spaces for tabs in java files.
-autocmd FileType java set autoindent shiftwidth=4 softtabstop=4 expandtab
+" Use 4 spaces for tabs in java and xml files.
+autocmd FileType java,xml set autoindent shiftwidth=4 softtabstop=4 expandtab
 
 " Set a Gemfile as ruby filetype.
 autocmd BufRead Gemfile set filetype=ruby
@@ -74,8 +74,8 @@ match Debug /DEBUG/
 
 " GUI specific options
 if has("gui_running")
-  " Remove the toolbar.
-  set guioptions-=T
+  set guioptions-=T " Remove the toolbar.
+  set guioptions-=m " Remove the menubar.
 end
 
 
