@@ -76,8 +76,13 @@ match Debug /DEBUG/
 if has("gui_running")
   set guioptions-=T " Remove the toolbar.
   set guioptions-=m " Remove the menubar.
-end
+endif
 
+
+" Android specific options
+if filereadable("./AndroidManifest.xml")
+  set wildignore+=.git,bin,gen
+endif
 
 "
 " Plugin options
@@ -120,13 +125,13 @@ nnoremap <F1> :emenu <C-Z>
 nnoremap <silent> <F2> :NERDTreeToggle<CR>
 nnoremap <silent> <F4> :TlistToggle<CR>
 
-map <Leader>b :FufBuffer<CR>
+" map <Leader>b :FufBuffer<CR>
 
 " Clear highlighted search with <Leader>/
 nmap <silent> <Leader>/ :let @/=""<CR>
 
 " Clear trailing whitespace (and clear the previous highlighted search).
-map <silent> <Leader>c :%s/\s\+$//g<CR><Leader>/
+nnoremap <silent> <Leader>c :%s/\s\+$//ge<CR><Leader>/
 
 map <Leader>a= :Tabularize /=<CR>
 
