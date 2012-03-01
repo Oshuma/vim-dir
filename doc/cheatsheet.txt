@@ -1,0 +1,33 @@
+*cheatsheet.txt*  Useful Vim shortcuts
+*cheatsheet*
+
+           _______           _______  _______ _________ _  ~
+          (  ____ \|\     /|(  ____ \(  ___  )\__   __/( ) ~
+          | (    \/| )   ( || (    \/| (   ) |   ) (   | | ~
+          | |      | (___) || (__    | (___) |   | |   | | ~
+          | |      |  ___  ||  __)   |  ___  |   | |   | | ~
+          | |      | (   ) || (      | (   ) |   | |   (_) ~
+          | (____/\| )   ( || (____/\| )   ( |   | |    _  ~
+          (_______/|/     \|(_______/|/     \|   )_(   (_) ~
+
+
+1. COMMANDS                                                    *cheat-commands*
+
+                                                               *cheat-tags* |da|
+da<
+
+Delete the HTML tag under the cursor.
+
+                                                               *cheat-encoding* |++enc|
+:e++enc=utf8
+
+Open a file with UTF8 encoding.
+
+                                                               *cheat-strings* |ci|
+ci"
+
+Change contents of double quoted string.
+
+
+
+ vim:filetype=help tw=80 ts=4

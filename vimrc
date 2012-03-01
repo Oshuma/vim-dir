@@ -39,6 +39,7 @@ set noincsearch
 set nowrap
 set ruler
 set scrolloff=2
+set showmatch
 set title
 
 " Indenting shit
@@ -115,7 +116,9 @@ cmap w!! %!sudo tee > /dev/null %
 
 nnoremap <F1> :emenu <C-Z>
 nnoremap <silent> <F2> :NERDTreeToggle<CR>
+nnoremap <silent> <left> <ESC>:NERDTreeToggle<CR>
 nnoremap <silent> <F4> :TlistToggle<CR>
+nnoremap <silent> <right> <ESC>:TlistToggle<CR>
 
 map <Leader>b :FufBuffer<CR>
 
@@ -126,6 +129,10 @@ nmap <silent> <Leader>/ :let @/=""<CR>
 map <silent> <Leader>c :%s/\s\+$//g<CR><Leader>/
 
 map <Leader>a= :Tabularize /=<CR>
+
+" Because Putty doesn't seem to pick up these keys.
+" map <Leader>n :NERDTreeToggle<CR>
+" map <Leader>m :TlistToggle<CR>
 
 nmap <C-t> :tabnew<CR>
 nmap <C-h> :tabp<CR>
