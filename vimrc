@@ -63,8 +63,11 @@ set cpoptions-=<
 set wildmenu
 set wildcharm=<C-Z>
 
-" Use 4 spaces for tabs in java files.
-autocmd FileType java set autoindent shiftwidth=4 softtabstop=4 expandtab
+" Use 4 spaces for tabs in java and xml files.
+autocmd FileType java,xml set autoindent shiftwidth=4 softtabstop=4 expandtab
+
+" Set a Gemfile as ruby filetype.
+autocmd BufRead Gemfile set filetype=ruby
 
 " Highlight the 'DEBUG' word.
 highlight Debug ctermbg=red ctermfg=white guibg=red guifg=white
@@ -72,10 +75,15 @@ match Debug /DEBUG/
 
 " GUI specific options
 if has("gui_running")
-  " Remove the toolbar.
-  set guioptions-=T
-end
+  set guioptions-=T " Remove the toolbar.
+  set guioptions-=m " Remove the menubar.
+endif
 
+
+" Android specific options
+if filereadable("./AndroidManifest.xml")
+  set wildignore+=.git,bin,gen
+endif
 
 "
 " Plugin options
@@ -120,13 +128,13 @@ nnoremap <silent> <left> <ESC>:NERDTreeToggle<CR>
 nnoremap <silent> <F4> :TlistToggle<CR>
 nnoremap <silent> <right> <ESC>:TlistToggle<CR>
 
-map <Leader>b :FufBuffer<CR>
+" map <Leader>b :FufBuffer<CR>
 
 " Clear highlighted search with <Leader>/
 nmap <silent> <Leader>/ :let @/=""<CR>
 
 " Clear trailing whitespace (and clear the previous highlighted search).
-map <silent> <Leader>c :%s/\s\+$//g<CR><Leader>/
+nnoremap <silent> <Leader>c :%s/\s\+$//ge<CR><Leader>/
 
 map <Leader>a= :Tabularize /=<CR>
 
