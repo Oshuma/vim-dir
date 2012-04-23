@@ -7,17 +7,20 @@ filetype off
 set rtp+=~/.vim/vundle.git/
 call vundle#rc()
 
+Bundle 'gmarik/vundle'
+
 Bundle 'Command-T'
 Bundle 'fugitive.vim'
 Bundle 'L9'
-Bundle 'FuzzyFinder'
+" Bundle 'FuzzyFinder'
 Bundle 'rails.vim'
 Bundle 'snipMate'
 Bundle 'surround.vim'
 Bundle 'Tabular'
 Bundle 'tComment'
 Bundle 'The-NERD-tree'
-Bundle 'taglist.vim'
+" Bundle 'taglist.vim'
+Bundle 'majutsushi/tagbar'
 Bundle 'ZoomWin'
 
 
@@ -100,14 +103,17 @@ let g:fuzzy_matching_limit = 40
 let NERDTreeQuitOnOpen = 1
 
 " taglist.vim
-let Tlist_Ctags_Cmd = '/usr/bin/ctags'
-let Tlist_Sort_Type = 'name'
-let Tlist_GainFocus_On_ToggleOpen = 1
-let Tlist_Close_On_Select = 1
-let Tlist_Use_Right_Window = 1
-let Tlist_WinWidth = 35
-let Tlist_Enable_Fold_Column = 0
-let Tlist_Inc_Winwidth = 0 " Don't auto-resize the vim window.
+" let Tlist_Ctags_Cmd = '/usr/bin/ctags'
+" let Tlist_Sort_Type = 'name'
+" let Tlist_GainFocus_On_ToggleOpen = 1
+" let Tlist_Close_On_Select = 1
+" let Tlist_Use_Right_Window = 1
+" let Tlist_WinWidth = 35
+" let Tlist_Enable_Fold_Column = 0
+" let Tlist_Inc_Winwidth = 0 " Don't auto-resize the vim window.
+
+let g:tagbar_autoclose = 1
+let g:tagbar_autofocus = 1
 
 
 "
@@ -125,10 +131,12 @@ cmap w!! %!sudo tee > /dev/null %
 nnoremap <F1> :emenu <C-Z>
 nnoremap <silent> <F2> :NERDTreeToggle<CR>
 nnoremap <silent> <left> <ESC>:NERDTreeToggle<CR>
-nnoremap <silent> <F4> :TlistToggle<CR>
-nnoremap <silent> <right> <ESC>:TlistToggle<CR>
 
-" map <Leader>b :FufBuffer<CR>
+" nnoremap <silent> <F4> :TlistToggle<CR>
+" nnoremap <silent> <right> <ESC>:TlistToggle<CR>
+
+nnoremap <silent> <F4> :TagbarToggle<CR>
+nnoremap <silent> <right> <ESC>:TagbarToggle<CR>
 
 " Clear highlighted search with <Leader>/
 nmap <silent> <Leader>/ :let @/=""<CR>

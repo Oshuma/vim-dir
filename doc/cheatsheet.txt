@@ -29,5 +29,18 @@ ci"
 Change contents of double quoted string.
 
 
+2. PLUGINS                                                     cheat-plugins
+
+                                                               cheat-git
+:Gstatus
+
+Show git status window. '-' to add/remove from index, 'p' to patch.
+
+:Gdiff
+
+Show vimdiff with current file and git changes.
+
+
+
 
  vim:filetype=help tw=80 ts=4
