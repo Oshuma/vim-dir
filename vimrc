@@ -139,33 +139,33 @@ nnoremap <silent> <F4> :TagbarToggle<CR>
 nnoremap <silent> <right> <ESC>:TagbarToggle<CR>
 
 " Clear highlighted search with <Leader>/
-nmap <silent> <Leader>/ :let @/=""<CR>
+nnoremap <silent> <Leader>/ :let @/=""<CR>
 
 " Clear trailing whitespace (and clear the previous highlighted search).
 nnoremap <silent> <Leader>c :%s/\s\+$//ge<CR><Leader>/
 
-map <Leader>a= :Tabularize /=<CR>
+nnoremap <Leader>a= :Tabularize /=<CR>
 
 " Because Putty doesn't seem to pick up these keys.
-" map <Leader>n :NERDTreeToggle<CR>
-" map <Leader>m :TlistToggle<CR>
+" nnoremap <Leader>n :NERDTreeToggle<CR>
+" nnoremap <Leader>m :TlistToggle<CR>
 
-nmap <C-t> :tabnew<CR>
-nmap <C-h> :tabp<CR>
-nmap <C-l> :tabn<CR>
+nnoremap <C-t> :tabnew<CR>
+nnoremap <C-h> :tabp<CR>
+nnoremap <C-l> :tabn<CR>
 
-nmap <C-p> :bprevious<CR>
-nmap <C-n> :bnext<CR>
+nnoremap <C-p> :bprevious<CR>
+nnoremap <C-n> :bnext<CR>
 
-nmap <Leader>f :set foldlevel=1<CR>
-nmap <Leader>F zR
+nnoremap <Leader>f :set foldlevel=1<CR>
+nnoremap <Leader>F zR
 
-map <Leader>s :w<CR>
-map <Leader>S :wa<CR>
+nnoremap <Leader>s :w<CR>
+nnoremap <Leader>S :wa<CR>
 
-map <Leader>y "+y<CR>
-map <Leader>p "+p<CR>
-map <Leader>P "+P<CR>
+nnoremap <Leader>y "+y<CR>
+nnoremap <Leader>p "+p<CR>
+nnoremap <Leader>P "+P<CR>
 
 " This must be last.
 filetype plugin indent on
