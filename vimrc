@@ -12,26 +12,30 @@ Bundle 'gmarik/vundle'
 Bundle 'Command-T'
 Bundle 'fugitive.vim'
 Bundle 'L9'
-" Bundle 'FuzzyFinder'
-Bundle 'rails.vim'
+Bundle 'tpope/vim-rails'
 Bundle 'snipMate'
 Bundle 'surround.vim'
 Bundle 'Tabular'
-Bundle 'tComment'
+Bundle 'scrooloose/nerdcommenter'
 Bundle 'The-NERD-tree'
-" Bundle 'taglist.vim'
 Bundle 'majutsushi/tagbar'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'groenewege/vim-less'
+Bundle 'Lokaltog/vim-powerline'
 Bundle 'ZoomWin'
 
 
 "
 " Vim options
 "
+set t_Co=256 " Use 256 colors.
 colorscheme desert
+
 set backup
 set backupdir=$HOME/.vim/backups
 set backupext=.bak
 set directory=$HOME/.vim/tmp
+set encoding=utf-8
 set foldmethod=indent
 " set foldlevelstart=1  " Close all but the top-level fold.
 set foldlevelstart=9999 " All folds open.
@@ -70,7 +74,7 @@ set wildcharm=<C-Z>
 autocmd FileType java,xml set autoindent shiftwidth=4 softtabstop=4 expandtab
 
 " Set a Gemfile as ruby filetype.
-autocmd BufRead Gemfile set filetype=ruby
+autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 
 " Highlight the 'DEBUG' word.
 highlight Debug ctermbg=red ctermfg=white guibg=red guifg=white
@@ -78,15 +82,26 @@ match Debug /DEBUG/
 
 " GUI specific options
 if has("gui_running")
+  set guifont=Ubuntu\ Mono\ 14
   set guioptions-=T " Remove the toolbar.
   set guioptions-=m " Remove the menubar.
 endif
 
-
-" Android specific options
-if filereadable("./AndroidManifest.xml")
-  set wildignore+=.git,bin,gen
+" Don't match things in ./.git
+if filereadable("./.git")
+  set wildignore+=.git
 endif
+
+" Android - Don't match things in bin/ and gen/
+if filereadable("./AndroidManifest.xml")
+  set wildignore+=bin,gen
+endif
+
+" Rails - Don't match generated docs, coverage, and tmp/
+if filereadable("./script/rails")
+  set wildignore+=doc/app,doc/coverage,tmp
+endif
+
 
 "
 " Plugin options
@@ -102,18 +117,16 @@ let g:fuzzy_matching_limit = 40
 
 let NERDTreeQuitOnOpen = 1
 
-" taglist.vim
-" let Tlist_Ctags_Cmd = '/usr/bin/ctags'
-" let Tlist_Sort_Type = 'name'
-" let Tlist_GainFocus_On_ToggleOpen = 1
-" let Tlist_Close_On_Select = 1
-" let Tlist_Use_Right_Window = 1
-" let Tlist_WinWidth = 35
-" let Tlist_Enable_Fold_Column = 0
-" let Tlist_Inc_Winwidth = 0 " Don't auto-resize the vim window.
-
 let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
+
+" Use custom icons and arrows for Powerline (requires a patched font).
+let g:Powerline_symbols = 'fancy'
+" Uses unicode (doesn't need a patched font).
+" let g:Powerline_symbols = 'unicode'
+
+" Put a space after comment character with nerdcommenter.
+let g:NERDSpaceDelims = 1
 
 
 "
@@ -131,9 +144,6 @@ cmap w!! %!sudo tee > /dev/null %
 nnoremap <F1> :emenu <C-Z>
 nnoremap <silent> <F2> :NERDTreeToggle<CR>
 nnoremap <silent> <left> <ESC>:NERDTreeToggle<CR>
-
-" nnoremap <silent> <F4> :TlistToggle<CR>
-" nnoremap <silent> <right> <ESC>:TlistToggle<CR>
 
 nnoremap <silent> <F4> :TagbarToggle<CR>
 nnoremap <silent> <right> <ESC>:TagbarToggle<CR>
@@ -166,6 +176,9 @@ nnoremap <Leader>S :wa<CR>
 nnoremap <Leader>y "+y<CR>
 nnoremap <Leader>p "+p<CR>
 nnoremap <Leader>P "+P<CR>
+
+nnoremap <Leader>gc :call NERDComment('nx', 'AlignLeft')<CR>
+vnoremap <Leader>gc :call NERDComment('nx', 'AlignLeft')<CR>
 
 " This must be last.
 filetype plugin indent on
