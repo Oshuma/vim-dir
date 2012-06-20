@@ -71,10 +71,16 @@ set wildmenu
 set wildcharm=<C-Z>
 
 " Use 4 spaces for tabs in java and xml files.
-autocmd FileType java,xml set autoindent shiftwidth=4 softtabstop=4 expandtab
+augroup filetype_java
+  autocmd!
+  autocmd FileType java,xml set autoindent shiftwidth=4 softtabstop=4 expandtab
+augroup END
 
 " Set a Gemfile as ruby filetype.
-autocmd BufNewFile,BufRead Gemfile set filetype=ruby
+augroup filetype_gemfile
+  autocmd!
+  autocmd BufNewFile,BufRead Gemfile set filetype=ruby
+augroup END
 
 " Highlight the 'DEBUG' word.
 highlight Debug ctermbg=red ctermfg=white guibg=red guifg=white
