@@ -22,6 +22,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'groenewege/vim-less'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'bbommarito/vim-slim'
 Bundle 'ZoomWin'
 
 
@@ -80,6 +81,12 @@ augroup END
 augroup filetype_gemfile
   autocmd!
   autocmd BufNewFile,BufRead Gemfile set filetype=ruby
+augroup END
+
+" Set a Guardfile as ruby filetype.
+augroup filetype_guardfile
+  autocmd!
+  autocmd BufNewFile,BufRead Guardfile set filetype=ruby
 augroup END
 
 " Highlight the 'DEBUG' word.
