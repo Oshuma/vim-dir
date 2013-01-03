@@ -22,7 +22,6 @@ Bundle 'majutsushi/tagbar'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'groenewege/vim-less'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'bbommarito/vim-slim'
 Bundle 'ZoomWin'
 
 
