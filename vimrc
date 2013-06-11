@@ -9,7 +9,7 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-Bundle 'Command-T'
+Bundle 'kien/ctrlp.vim'
 Bundle 'fugitive.vim'
 Bundle 'L9'
 Bundle 'tpope/vim-rails'
@@ -140,6 +140,10 @@ let g:Powerline_symbols = 'fancy'
 " Put a space after comment character with nerdcommenter.
 let g:NERDSpaceDelims = 1
 
+" CtrlP options
+let g:ctrlp_map = '<Leader>t'
+let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_match_window_reversed = 0
 
 "
 " Key / Command Binds
