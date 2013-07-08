@@ -9,19 +9,18 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+Bundle 'bling/vim-airline'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'L9'
 Bundle 'tpope/vim-rails'
 Bundle 'snipMate'
 Bundle 'surround.vim'
-Bundle 'Tabular'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'The-NERD-tree'
 Bundle 'majutsushi/tagbar'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'groenewege/vim-less'
-Bundle 'bling/vim-airline'
 Bundle 'slim-template/vim-slim'
 Bundle 'ZoomWin'
 
@@ -178,8 +177,6 @@ nnoremap <silent> <Leader>/ :let @/=""<CR>
 
 " Clear trailing whitespace (and clear the previous highlighted search).
 nnoremap <silent> <Leader>c :%s/\s\+$//ge<CR><Leader>/
-
-nnoremap <Leader>a= :Tabularize /=<CR>
 
 " Because Putty doesn't seem to pick up these keys.
 " nnoremap <Leader>n :NERDTreeToggle<CR>
