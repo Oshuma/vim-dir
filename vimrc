@@ -22,6 +22,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'groenewege/vim-less'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'slim-template/vim-slim'
 Bundle 'ZoomWin'
 
 
@@ -144,6 +145,7 @@ let g:NERDSpaceDelims = 1
 let g:ctrlp_map = '<Leader>t'
 let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)|tmp$'
 
 "
 " Key / Command Binds
@@ -195,6 +197,10 @@ nnoremap <Leader>P "+P<CR>
 
 nnoremap <Leader>gc :call NERDComment('nx', 'AlignLeft')<CR>
 vnoremap <Leader>gc :call NERDComment('nx', 'AlignLeft')<CR>
+
+nnoremap <Leader>b :CtrlPBuffer<CR>
+
+syntax on
 
 " This must be last.
 filetype plugin indent on
