@@ -10,7 +10,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'kien/ctrlp.vim'
-Bundle 'fugitive.vim'
+Bundle 'tpope/vim-fugitive'
 Bundle 'L9'
 Bundle 'tpope/vim-rails'
 Bundle 'snipMate'
@@ -21,7 +21,7 @@ Bundle 'The-NERD-tree'
 Bundle 'majutsushi/tagbar'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'groenewege/vim-less'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 Bundle 'slim-template/vim-slim'
 Bundle 'ZoomWin'
 
@@ -146,6 +146,13 @@ let g:ctrlp_map = '<Leader>t'
 let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)|tmp$'
+
+" vim-airline options
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+let g:airline_linecolumn_prefix = '␊ '
+let g:airline_fugitive_prefix = '⎇ '
+
 
 "
 " Key / Command Binds
