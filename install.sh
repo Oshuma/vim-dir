@@ -23,10 +23,8 @@ ln -s $vim_dir/vimrc $vimrc
 # Clone the Vundle repo.
 git clone http://github.com/gmarik/vundle.git $vim_dir/vundle.git
 
-# Install the bundles and compile plugin extentions.
-# Note: We have to use a vim '-c' hack here, since the script exits when vim does.
-compile_extentions="cd $vim_dir/bundle/Command-T/ruby/command-t && ruby extconf.rb && make clean && make"
-vim -c :BundleInstall -c ":!$compile_extentions" -c :q
+# Install the bundles.
+vim -c :BundleInstall -c :q
 
 # Sometimes the terminal gets fudged, so reset it.
 reset
