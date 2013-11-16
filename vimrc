@@ -9,9 +9,11 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+Bundle 'mileszs/ack.vim'
 Bundle 'bling/vim-airline'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-fugitive'
+Bundle 'airblade/vim-gitgutter'
 Bundle 'L9'
 Bundle 'tpope/vim-rails'
 Bundle 'snipMate'
@@ -45,9 +47,11 @@ set hlsearch
 set noincsearch
 set nowrap
 set ruler
+set shell=/bin/bash " Required when using 'fish' shell, since things fuck up.
 set scrolloff=2
 set showmatch
 set title
+set updatetime=750 " Set lower than the default so vim-gitgutter updates quicker.
 
 " Indenting shit
 set autoindent
@@ -88,10 +92,6 @@ augroup filetype_guardfile
   autocmd BufNewFile,BufRead Guardfile set filetype=ruby
 augroup END
 
-" Highlight the 'DEBUG' word.
-highlight Debug ctermbg=red ctermfg=white guibg=red guifg=white
-match Debug /DEBUG/
-
 " GUI specific options
 if has("gui_running")
   set guifont=Ubuntu\ Mono\ 14
@@ -106,7 +106,12 @@ endif
 
 " Android - Don't match things in bin/ and gen/
 if filereadable("./AndroidManifest.xml")
-  set wildignore+=bin,gen
+  set wildignore+=bin,gen,out
+endif
+
+" Titanium - Don't match things in build/
+if filereadable("./tiapp.xml")
+  set wildignore+=build
 endif
 
 " Rails - Don't match generated docs, coverage, and tmp/
@@ -151,6 +156,9 @@ let g:airline_left_sep = '▶'
 let g:airline_right_sep = '◀'
 let g:airline_linecolumn_prefix = '␊ '
 let g:airline_fugitive_prefix = '⎇ '
+
+" vim-gitgutter options
+let g:gitgutter_sign_column_always = 1
 
 
 "
@@ -204,7 +212,15 @@ vnoremap <Leader>gc :call NERDComment('nx', 'AlignLeft')<CR>
 
 nnoremap <Leader>b :CtrlPBuffer<CR>
 
+
 syntax on
+
+" Highlight the 'DEBUG' word.
+highlight Debug ctermbg=red ctermfg=white guibg=red guifg=white
+match Debug /DEBUG/
+
+" Set the SignColumn colors the same as LineNr.
+highlight clear SignColumn
 
 " This must be last.
 filetype plugin indent on
