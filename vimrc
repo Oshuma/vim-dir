@@ -14,6 +14,7 @@ Bundle 'bling/vim-airline'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'jamessan/vim-gnupg'
 Bundle 'L9'
 Bundle 'tpope/vim-rails'
 Bundle 'snipMate'
@@ -22,17 +23,28 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'The-NERD-tree'
 Bundle 'majutsushi/tagbar'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'pangloss/vim-javascript'
 Bundle 'groenewege/vim-less'
 Bundle 'slim-template/vim-slim'
 Bundle 'ZoomWin'
 
 
 "
-" Vim options
+" Color options
 "
 set t_Co=256 " Use 256 colors.
-colorscheme desert
+Bundle 'altercation/vim-colors-solarized'
+if has('gui_running')
+  set background=dark
+  colorscheme solarized
+else
+  colorscheme desert
+endif
 
+
+"
+" Vim options
+"
 set backup
 set backupdir=$HOME/.vim/backups
 set backupext=.bak
@@ -47,6 +59,7 @@ set history=100
 set hlsearch
 set noincsearch
 set nowrap
+set number
 set ruler
 set shell=/bin/bash " Required when using 'fish' shell, since things fuck up.
 set scrolloff=2
@@ -59,6 +72,7 @@ set autoindent
 set backspace=start,eol,indent
 set expandtab
 set smarttab
+set smartindent
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
@@ -95,7 +109,7 @@ augroup END
 
 " GUI specific options
 if has("gui_running")
-  set guifont=Ubuntu\ Mono\ 14
+  " set guifont=Ubuntu\ Mono\ 14
   set guioptions-=T " Remove the toolbar.
   set guioptions-=m " Remove the menubar.
 endif
@@ -215,6 +229,7 @@ nnoremap <Leader>b :CtrlPBuffer<CR>
 
 
 syntax on
+" syntax enable
 
 " Highlight the 'DEBUG' word.
 highlight Debug ctermbg=red ctermfg=white guibg=red guifg=white
