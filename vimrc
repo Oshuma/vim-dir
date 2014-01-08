@@ -71,8 +71,8 @@ set updatetime=750 " Set lower than the default so vim-gitgutter updates quicker
 set autoindent
 set backspace=start,eol,indent
 set expandtab
-set smarttab
 set smartindent
+set smarttab
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
@@ -109,7 +109,7 @@ augroup END
 
 " GUI specific options
 if has("gui_running")
-  " set guifont=Ubuntu\ Mono\ 14
+  set guifont=Menlo:h12
   set guioptions-=T " Remove the toolbar.
   set guioptions-=m " Remove the menubar.
 endif
