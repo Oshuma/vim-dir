@@ -164,7 +164,7 @@ let g:NERDSpaceDelims = 1
 let g:ctrlp_map = '<Leader>t'
 let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_match_window_reversed = 0
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)|tmp$'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)|tmp$|node_modules'
 
 " vim-airline options
 let g:airline_left_sep = '▶'
