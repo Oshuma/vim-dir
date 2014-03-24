@@ -89,10 +89,16 @@ set cpoptions-=<
 set wildmenu
 set wildcharm=<C-Z>
 
-" Use 4 spaces for tabs in java and xml files.
+" Use 2 spaces for tabs in HTML files.
+augroup filetype_html
+  autocmd!
+  autocmd FileType html set autoindent shiftwidth=2 softtabstop=2 expandtab
+augroup END
+
+" Use 4 spaces for tabs in java files.
 augroup filetype_java
   autocmd!
-  autocmd FileType java,xml set autoindent shiftwidth=4 softtabstop=4 expandtab
+  autocmd FileType java set autoindent shiftwidth=4 softtabstop=4 expandtab
 augroup END
 
 " Set a Gemfile as ruby filetype.
@@ -126,7 +132,7 @@ endif
 
 " Titanium - Don't match things in build/
 if filereadable("./tiapp.xml")
-  set wildignore+=build
+  set wildignore+=build,docs
 endif
 
 " Rails - Don't match generated docs, coverage, and tmp/
