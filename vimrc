@@ -26,6 +26,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'pangloss/vim-javascript'
 Bundle 'groenewege/vim-less'
 Bundle 'slim-template/vim-slim'
+Bundle 'digitaltoad/vim-jade.git'
 Bundle 'ZoomWin'
 
 
@@ -130,6 +131,11 @@ if filereadable("./AndroidManifest.xml")
   set wildignore+=bin,gen,out
 endif
 
+" Android (gradle) - Don't match build files.
+if filereadable("./build.gradle")
+  set wildignore+=build
+endif
+
 " Titanium - Don't match things in build/
 if filereadable("./tiapp.xml")
   set wildignore+=build,docs
@@ -158,11 +164,6 @@ let NERDTreeQuitOnOpen = 1
 let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
 
-" Use custom icons and arrows for Powerline (requires a patched font).
-let g:Powerline_symbols = 'fancy'
-" Uses unicode (doesn't need a patched font).
-" let g:Powerline_symbols = 'unicode'
-
 " Put a space after comment character with nerdcommenter.
 let g:NERDSpaceDelims = 1
 
@@ -177,6 +178,7 @@ let g:airline_left_sep = '▶'
 let g:airline_right_sep = '◀'
 let g:airline_linecolumn_prefix = '␊ '
 let g:airline_fugitive_prefix = '⎇ '
+let g:airline#extensions#tabline#enabled = 1
 
 " vim-gitgutter options
 let g:gitgutter_sign_column_always = 1
