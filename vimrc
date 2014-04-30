@@ -143,7 +143,7 @@ endif
 
 " Rails - Don't match generated docs, coverage, and tmp/
 if filereadable("./script/rails")
-  set wildignore+=doc/app,doc/coverage,tmp
+  set wildignore+=doc/app,doc/coverage,coverage,tmp
 endif
 
 
