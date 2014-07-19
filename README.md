@@ -19,13 +19,6 @@
 
     :BundleInstall
 
-### Compile plugin extensions:
-
-#### Command-T
-
-    $ cd ~/.vim/bundle/Command-T/ruby/command-t
-    $ ruby extconf.rb && make
-
 ### Link ~/.vimrc:
 
     $ ln -s ~/.vim/vimrc ~/.vimrc
