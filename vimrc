@@ -12,40 +12,27 @@ Bundle 'gmarik/vundle'
 Bundle 'mileszs/ack.vim'
 Bundle 'bling/vim-airline'
 Bundle 'kien/ctrlp.vim'
+Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'jamessan/vim-gnupg'
+Bundle 'digitaltoad/vim-jade.git'
+Bundle 'pangloss/vim-javascript'
+Bundle 'groenewege/vim-less'
 Bundle 'L9'
 Bundle 'tpope/vim-rails'
-Bundle 'snipMate'
+Bundle 'slim-template/vim-slim'
 Bundle 'surround.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'The-NERD-tree'
 Bundle 'majutsushi/tagbar'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'pangloss/vim-javascript'
-Bundle 'groenewege/vim-less'
-Bundle 'slim-template/vim-slim'
-Bundle 'digitaltoad/vim-jade.git'
-Bundle 'ZoomWin'
-
-
-"
-" Color options
-"
-set t_Co=256 " Use 256 colors.
-Bundle 'altercation/vim-colors-solarized'
-if has('gui_running')
-  set background=dark
-  colorscheme solarized
-else
-  colorscheme desert
-endif
+Bundle 'SirVer/ultisnips'
 
 
 "
 " Vim options
 "
+set background=dark
 set backup
 set backupdir=$HOME/.vim/backups
 set backupext=.bak
@@ -80,6 +67,20 @@ set tabstop=2
 
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v][%p%%]\ [LINES=%L]
 set laststatus=2
+
+
+"
+" Color options
+"
+set t_Co=256 " Use 256 colors.
+Bundle 'altercation/vim-colors-solarized'
+if has('gui_running')
+  set background=dark
+  colorscheme solarized
+else
+  colorscheme desert
+endif
+
 
 " Better matching with the % command
 runtime macros/matchit.vim
@@ -147,6 +148,13 @@ if filereadable("./script/rails")
 endif
 
 
+" Convert tabs to 2 spaces
+command TabToSpace %s/\t/  /g
+" Convert tabs to 4 spaces
+command TabToSpace4 %s/\t/    /g
+
+
+
 "
 " Plugin options
 "
@@ -182,6 +190,10 @@ let g:airline#extensions#tabline#enabled = 1
 
 " vim-gitgutter options
 let g:gitgutter_sign_column_always = 1
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger='<tab>'
+" let g:UltiSnipsEditSplit='vertical'
 
 
 "
@@ -236,8 +248,16 @@ vnoremap <Leader>gc :call NERDComment('nx', 'AlignLeft')<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
 
 
-syntax on
-" syntax enable
+" syntax on
+syntax enable
+
+" CusorLine
+set cursorline
+let vimrc_cursorline_ctermbg = 8
+highlight cursorline cterm=none term=none
+execute "highlight cursorline cterm=none ctermfg=none ctermbg=".vimrc_cursorline_ctermbg
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
 
 " Highlight the 'DEBUG' word.
 highlight Debug ctermbg=red ctermfg=white guibg=red guifg=white
