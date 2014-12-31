@@ -1,0 +1,39 @@
+snippet erb "ERB tag (erb)" i
+<% ${1} %>
+endsnippet
+
+snippet erb= "ERB output tag (erb=)" i
+<%= ${1} %>
+endsnippet
+
+snippet erbb "ERB block (erbb)"
+<% ${1} do %>
+	${2}
+<% end %>${0}
+endsnippet
+
+snippet erbb= "ERB block with output (erbb)"
+<%= ${1} do %>
+	${2}
+<% end %>${0}
+endsnippet
+
+snippet erbif "ERB if statement (erbif)"
+<% if ${1} %>
+	${0}
+<% end %>
+endsnippet
+
+snippet erbel "ERB else statement (erbel)"
+<% else %>${0}
+endsnippet
+
+snippet erbend "ERB end statement (erbend)"
+<% end %>${0}
+endsnippet
+
+snippet each "ERB each iterator (each)"
+<% ${1:collection}.each do |${2:object}| %>
+	${0}
+<% end %>
+endsnippet

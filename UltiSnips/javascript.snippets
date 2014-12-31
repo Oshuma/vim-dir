@@ -1,0 +1,37 @@
+snippet todo "Javascript TODO line (todo)"
+// TODO: ${0}
+endsnippet
+
+snippet fixme "Javascript FIXME line (fixme)"
+// FIXME: ${0}
+endsnippet
+
+snippet docready "Javascript $(document).ready() (docready)"
+$(document).ready(function() {
+
+	${0}
+
+});
+endsnippet
+
+snippet fun "Javascript function (fun)"
+function(${1:args}) {
+	${2}
+}${0}
+endsnippet
+
+snippet congroup "Javascript console.group() (congroup)"
+console.group('${1:name}');
+${0}
+console.groupEnd();
+endsnippet
+
+snippet log "Javascript console.log() (log)"
+console.log(${1});${0}
+endsnippet
+
+snippet on "Javascript/Jquery .on() (on)"
+$('${1:selector}').on('${2:event}', function(${3:e}) {
+	${0}
+});
+endsnippet

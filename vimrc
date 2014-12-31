@@ -7,26 +7,27 @@ filetype off
 set rtp+=~/.vim/vundle.git/
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
-Bundle 'mileszs/ack.vim'
-Bundle 'bling/vim-airline'
-Bundle 'kien/ctrlp.vim'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'tpope/vim-fugitive'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'jamessan/vim-gnupg'
-Bundle 'digitaltoad/vim-jade.git'
-Bundle 'pangloss/vim-javascript'
-Bundle 'groenewege/vim-less'
-Bundle 'L9'
-Bundle 'tpope/vim-rails'
-Bundle 'slim-template/vim-slim'
-Bundle 'surround.vim'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'The-NERD-tree'
-Bundle 'majutsushi/tagbar'
-Bundle 'SirVer/ultisnips'
+Plugin 'mileszs/ack.vim'
+Plugin 'bling/vim-airline'
+" Plugin 'kien/ctrlp.vim'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'digitaltoad/vim-jade.git'
+Plugin 'pangloss/vim-javascript'
+Plugin 'groenewege/vim-less'
+Plugin 'L9'
+Plugin 'nicwest/QQ.vim'
+Plugin 'tpope/vim-rails'
+Plugin 'slim-template/vim-slim'
+Plugin 'surround.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'The-NERD-tree'
+Plugin 'majutsushi/tagbar'
+Plugin 'SirVer/ultisnips'
+Plugin 'Shougo/unite.vim'
 
 
 "
@@ -73,7 +74,7 @@ set laststatus=2
 " Color options
 "
 set t_Co=256 " Use 256 colors.
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'altercation/vim-colors-solarized'
 if has('gui_running')
   set background=dark
   colorscheme solarized
@@ -176,10 +177,10 @@ let g:tagbar_autofocus = 1
 let g:NERDSpaceDelims = 1
 
 " CtrlP options
-let g:ctrlp_map = '<Leader>t'
-let g:ctrlp_match_window_bottom = 0
-let g:ctrlp_match_window_reversed = 0
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)|tmp$|node_modules'
+" let g:ctrlp_map = '<Leader>t'
+" let g:ctrlp_match_window_bottom = 0
+" let g:ctrlp_match_window_reversed = 0
+" let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)|tmp$|node_modules'
 
 " vim-airline options
 let g:airline_left_sep = '▶'
@@ -192,8 +193,13 @@ let g:airline#extensions#tabline#enabled = 1
 let g:gitgutter_sign_column_always = 1
 
 " UltiSnips
-let g:UltiSnipsExpandTrigger='<tab>'
-" let g:UltiSnipsEditSplit='vertical'
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+let g:UltiSnipsEditSplit = 'horizontal'
+
+" Unite
+" call unite#filters#matcher_default#use(['matcher_fuzzy'])
 
 
 "
@@ -232,8 +238,8 @@ nnoremap <C-l> :tabn<CR>
 nnoremap <C-p> :bprevious<CR>
 nnoremap <C-n> :bnext<CR>
 
-nnoremap <Leader>f :set foldlevel=1<CR>
-nnoremap <Leader>F zR
+nnoremap <Leader>z :set foldlevel=1<CR>
+nnoremap <Leader>Z zR
 
 nnoremap <Leader>s :w<CR>
 nnoremap <Leader>S :wa<CR>
@@ -245,7 +251,9 @@ nnoremap <Leader>P "+P<CR>
 nnoremap <Leader>gc :call NERDComment('nx', 'AlignLeft')<CR>
 vnoremap <Leader>gc :call NERDComment('nx', 'AlignLeft')<CR>
 
-nnoremap <Leader>b :CtrlPBuffer<CR>
+" nnoremap <Leader>b :CtrlPBuffer<CR>
+nnoremap <Leader>t :Unite -start-insert -horizontal file_rec<CR>
+nnoremap <Leader>b :Unite -start-insert -horizontal buffer<CR>
 
 
 " syntax on

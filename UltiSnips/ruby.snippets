@@ -1,0 +1,19 @@
+snippet db "Ruby debug statement (db)"
+STDOUT.puts "-- DEBUG: #{self.class}: ${1:message}"${0}
+endsnippet
+
+snippet dbo "Ruby debug object (dbo)"
+STDOUT.puts "-- DEBUG: #{self.class}: ${3}#{${1:object}${2:.inspect}}"${0}
+endsnippet
+
+snippet pry "Ruby pry shell (pry)"
+require 'pry'; binding.pry # DEBUG${1}
+endsnippet
+
+snippet todo "Ruby TODO line (todo)"
+# TODO: ${0}
+endsnippet
+
+snippet fixme "Ruby FIXME line (fixme)"
+# FIXME: ${0}
+endsnippet

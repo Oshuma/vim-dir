@@ -1,0 +1,13 @@
+snippet rdb "Rails debug statement (rdb)"
+Rails.logger.debug "-- DEBUG: #{self.class}: ${1:message}"${0}
+endsnippet
+
+snippet rdbo "Rails debug object (rdbo)"
+Rails.logger.debug "-- DEBUG: #{self.class}: ${3}#{${1:object}${2:.inspect}}"${0}
+endsnippet
+
+snippet resp "Rails respond_to block (resp)"
+respond_to do |format|
+	format.${1}
+end${0}
+endsnippet
