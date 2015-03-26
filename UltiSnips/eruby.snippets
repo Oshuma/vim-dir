@@ -37,3 +37,13 @@ snippet each "ERB each iterator (each)"
 	${0}
 <% end %>
 endsnippet
+
+snippet link "ERB link_to tag (link)"
+<%= link_to(${1:name}, ${2:path}${4:, ${3:opts}}) %>${0}
+endsnippet
+
+snippet linkb "ERB link_to tag with block (linkb)"
+<%= link_to(${1:path}${3:, ${2:opts}}) do %>
+	${4}
+<% end %>${0}
+endsnippet

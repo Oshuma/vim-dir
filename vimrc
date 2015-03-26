@@ -11,7 +11,7 @@ Plugin 'gmarik/vundle'
 
 Plugin 'mileszs/ack.vim'
 Plugin 'bling/vim-airline'
-" Plugin 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
@@ -27,7 +27,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'The-NERD-tree'
 Plugin 'majutsushi/tagbar'
 Plugin 'SirVer/ultisnips'
-Plugin 'Shougo/unite.vim'
+Plugin 'kchmck/vim-coffee-script'
 
 
 "
@@ -177,10 +177,10 @@ let g:tagbar_autofocus = 1
 let g:NERDSpaceDelims = 1
 
 " CtrlP options
-" let g:ctrlp_map = '<Leader>t'
-" let g:ctrlp_match_window_bottom = 0
-" let g:ctrlp_match_window_reversed = 0
-" let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)|tmp$|node_modules'
+let g:ctrlp_map = '<Leader>t'
+let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)|tmp$|node_modules'
 
 " vim-airline options
 let g:airline_left_sep = '▶'
@@ -197,9 +197,6 @@ let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 let g:UltiSnipsEditSplit = 'horizontal'
-
-" Unite
-" call unite#filters#matcher_default#use(['matcher_fuzzy'])
 
 
 "
@@ -251,9 +248,7 @@ nnoremap <Leader>P "+P<CR>
 nnoremap <Leader>gc :call NERDComment('nx', 'AlignLeft')<CR>
 vnoremap <Leader>gc :call NERDComment('nx', 'AlignLeft')<CR>
 
-" nnoremap <Leader>b :CtrlPBuffer<CR>
-nnoremap <Leader>t :Unite -start-insert -horizontal file_rec<CR>
-nnoremap <Leader>b :Unite -start-insert -horizontal buffer<CR>
+nnoremap <Leader>b :CtrlPBuffer<CR>
 
 
 " syntax on
