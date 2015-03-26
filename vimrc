@@ -69,6 +69,14 @@ set tabstop=2
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%04l,%04v][%p%%]\ [LINES=%L]
 set laststatus=2
 
+" Persistent undo
+if exists("&undodir")
+  set undofile
+  let &undodir=&directory
+  set undolevels=500
+  set undoreload=500
+endif
+
 
 "
 " Color options
