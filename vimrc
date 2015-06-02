@@ -193,8 +193,8 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)|tmp$|node_modules'
 " vim-airline options
 let g:airline_left_sep = '▶'
 let g:airline_right_sep = '◀'
-let g:airline_linecolumn_prefix = '␊ '
-let g:airline_fugitive_prefix = '⎇ '
+" let g:airline_linecolumn_prefix = '␊ '
+" let g:airline_fugitive_prefix = '⎇ '
 let g:airline#extensions#tabline#enabled = 1
 
 " vim-gitgutter options
