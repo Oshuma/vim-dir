@@ -37,7 +37,7 @@ set background=dark
 set backup
 set backupdir=$HOME/.vim/backups
 set backupext=.bak
-set cryptmethod=blowfish
+" set cryptmethod=blowfish
 set directory=$HOME/.vim/tmp
 set encoding=utf-8
 set foldmethod=indent
@@ -46,6 +46,7 @@ set foldlevelstart=9999 " All folds open.
 set hidden
 set history=100
 set hlsearch
+set mouse=c
 set noincsearch
 set nowrap
 set number
