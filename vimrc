@@ -15,6 +15,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'fatih/vim-go'
 Plugin 'digitaltoad/vim-jade.git'
 Plugin 'pangloss/vim-javascript'
 Plugin 'groenewege/vim-less'
@@ -50,6 +51,7 @@ set mouse=c
 set noincsearch
 set nowrap
 set number
+set relativenumber
 set ruler
 set shell=/bin/bash " Required when using 'fish' shell, since things fuck up.
 set scrolloff=2
@@ -127,7 +129,7 @@ augroup END
 
 " GUI specific options
 if has("gui_running")
-  set guifont=Menlo:h12
+  " set guifont=Menlo:h12
   set guioptions-=T " Remove the toolbar.
   set guioptions-=m " Remove the menubar.
 endif
@@ -153,8 +155,8 @@ if filereadable("./tiapp.xml")
 endif
 
 " Rails - Don't match generated docs, coverage, and tmp/
-if filereadable("./script/rails")
-  set wildignore+=doc/app,doc/coverage,coverage,tmp
+if filereadable("./bin/rails")
+  set wildignore+=doc/app,doc/coverage,coverage,tmp,.gems
 endif
 
 
@@ -223,9 +225,11 @@ cmap w!! %!sudo tee > /dev/null %
 nnoremap <F1> :emenu <C-Z>
 nnoremap <silent> <F2> :NERDTreeToggle<CR>
 nnoremap <silent> <left> <ESC>:NERDTreeToggle<CR>
+nnoremap <silent> <Leader>f :NERDTreeToggle<CR>
 
 nnoremap <silent> <F4> :TagbarToggle<CR>
 nnoremap <silent> <right> <ESC>:TagbarToggle<CR>
+nnoremap <silent> <Leader>g :TagbarToggle<CR>
 
 " Clear highlighted search with <Leader>/
 nnoremap <silent> <Leader>/ :let @/=""<CR>
