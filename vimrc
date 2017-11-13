@@ -156,8 +156,8 @@ if filereadable("./tiapp.xml")
 endif
 
 " Rails - Don't match generated docs, coverage, and tmp/
-if filereadable("./script/rails")
-  set wildignore+=doc/app,doc/coverage,coverage,tmp
+if filereadable("./bin/rails")
+  set wildignore+=doc/app,doc/coverage,coverage,tmp,.gems
 endif
 
 
