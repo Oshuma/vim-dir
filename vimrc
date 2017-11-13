@@ -4,17 +4,18 @@ filetype off
 "
 " Vundle
 "
-set rtp+=~/.vim/vundle.git/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'mileszs/ack.vim'
-Plugin 'bling/vim-airline'
-Plugin 'kien/ctrlp.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'fatih/vim-go'
 Plugin 'digitaltoad/vim-jade.git'
 Plugin 'pangloss/vim-javascript'
 Plugin 'groenewege/vim-less'
@@ -28,6 +29,7 @@ Plugin 'The-NERD-tree'
 Plugin 'majutsushi/tagbar'
 Plugin 'SirVer/ultisnips'
 Plugin 'kchmck/vim-coffee-script'
+call vundle#end()
 
 
 "
@@ -50,6 +52,7 @@ set mouse=c
 set noincsearch
 set nowrap
 set number
+set relativenumber
 set ruler
 set shell=/bin/bash " Required when using 'fish' shell, since things fuck up.
 set scrolloff=2
@@ -83,12 +86,12 @@ endif
 " Color options
 "
 set t_Co=256 " Use 256 colors.
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'scwood/vim-hybrid'
 if has('gui_running')
   set background=dark
-  colorscheme solarized
 else
   colorscheme desert
+  " colorscheme hybrid
 endif
 
 
@@ -127,7 +130,7 @@ augroup END
 
 " GUI specific options
 if has("gui_running")
-  set guifont=Menlo:h12
+  " set guifont=Menlo:h12
   set guioptions-=T " Remove the toolbar.
   set guioptions-=m " Remove the menubar.
 endif
@@ -192,11 +195,11 @@ let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)|tmp$|node_modules'
 
 " vim-airline options
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '◀'
+" let g:airline_left_sep = '▶'
+" let g:airline_right_sep = '◀'
 " let g:airline_linecolumn_prefix = '␊ '
 " let g:airline_fugitive_prefix = '⎇ '
-let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#enabled = 1
 
 " vim-gitgutter options
 let g:gitgutter_sign_column_always = 1
@@ -221,11 +224,13 @@ noremap ` '
 cmap w!! %!sudo tee > /dev/null %
 
 nnoremap <F1> :emenu <C-Z>
-nnoremap <silent> <F2> :NERDTreeToggle<CR>
-nnoremap <silent> <left> <ESC>:NERDTreeToggle<CR>
+" nnoremap <silent> <F2> :NERDTreeToggle<CR>
+" nnoremap <silent> <left> <ESC>:NERDTreeToggle<CR>
+nnoremap <Leader>f :NERDTreeToggle<CR>
 
 nnoremap <silent> <F4> :TagbarToggle<CR>
 nnoremap <silent> <right> <ESC>:TagbarToggle<CR>
+nnoremap <Leader>g :TagbarToggle<CR>
 
 " Clear highlighted search with <Leader>/
 nnoremap <silent> <Leader>/ :let @/=""<CR>
