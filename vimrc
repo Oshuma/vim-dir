@@ -11,6 +11,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'mileszs/ack.vim'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-fugitive'
@@ -25,6 +26,7 @@ Plugin 'tpope/vim-rails'
 Plugin 'slim-template/vim-slim'
 Plugin 'surround.vim'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'edkolev/tmuxline.vim'
 Plugin 'The-NERD-tree'
 Plugin 'majutsushi/tagbar'
 Plugin 'SirVer/ultisnips'
@@ -35,6 +37,7 @@ call vundle#end()
 "
 " Vim options
 "
+set autoread  " Updates open buffer if file was changed outside of vim.
 set background=dark
 set backup
 set backupdir=$HOME/.vim/backups
@@ -86,12 +89,10 @@ endif
 " Color options
 "
 set t_Co=256 " Use 256 colors.
-Plugin 'scwood/vim-hybrid'
 if has('gui_running')
   set background=dark
 else
   colorscheme desert
-  " colorscheme hybrid
 endif
 
 
@@ -200,9 +201,20 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)|tmp$|node_modules'
 " let g:airline_linecolumn_prefix = '␊ '
 " let g:airline_fugitive_prefix = '⎇ '
 " let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='bubblegum'
+
+" tmuxline.vim options
+let g:tmuxline_preset = 'full'
+let g:tmuxline_separators = {
+    \ 'left' : '',
+    \ 'left_alt': '⏵',
+    \ 'right' : '',
+    \ 'right_alt': '⏰',
+    \ 'space' : ' '}
 
 " vim-gitgutter options
-let g:gitgutter_sign_column_always = 1
+" let g:gitgutter_sign_column_always = 1
+set signcolumn=yes
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger = '<tab>'
