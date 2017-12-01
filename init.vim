@@ -1,1 +1,1 @@
-/home/dale/.vimrc
+vimrc
