@@ -204,7 +204,14 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)|tmp$|node_modules'
 let g:airline_theme='bubblegum'
 
 " tmuxline.vim options
+" let g:airline#extensions#tmuxline#enabled = 0
+" let g:tmuxline_powerline_separators = 0
 let g:tmuxline_preset = 'full'
+
+    " \ 'left_alt': '⊳',
+    " \ 'right_alt' : '⊲',
+    " \ 'left_alt': '⏵',
+    " \ 'right_alt' : '⏴',
 let g:tmuxline_separators = {
     \ 'left' : '',
     \ 'left_alt': '⏵',
