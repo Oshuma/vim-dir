@@ -1,11 +1,11 @@
 snippet div "HTML div tag (div)"
 <div${1: class="${2:class-name}"}>
 	${3}
-</div>${0}
+</div>
 endsnippet
 
 snippet span "HTML span tag (span)"
-<span${1: class="${2:class-name}"}>${3}</span>${0}
+<span${1: class="${2:class-name}"}>${3}</span>
 endsnippet
 
 snippet js "HTML script tag for inline Javascript (js)"
@@ -13,5 +13,13 @@ snippet js "HTML script tag for inline Javascript (js)"
 	$(document).ready(function() {
 		${1}
 	});
-</script>${0}
+</script>
+endsnippet
+
+snippet erb "ERB tag (erb)" i
+<% ${0} %>
+endsnippet
+
+snippet erb= "ERB output tag (erb=)" i
+<%= ${0} %>
 endsnippet
