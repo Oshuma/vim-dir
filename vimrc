@@ -12,9 +12,10 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'tpope/vim-fugitive'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf' }
+Plugin 'junegunn/fzf.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'fatih/vim-go'
 Plugin 'digitaltoad/vim-jade.git'
@@ -90,9 +91,8 @@ endif
 set t_Co=256 " Use 256 colors.
 if has('gui_running')
   set background=dark
-else
-  colorscheme desert
 endif
+colorscheme desert
 
 
 " Better matching with the % command
@@ -171,11 +171,9 @@ command TabToSpace4 %s/\t/    /g
 "
 " Plugin options
 "
-let g:CommandTAcceptSelectionSplitMap = '<C-o>'
-let g:CommandTCancelMap = '<ESC>'
-let g:CommandTMatchWindowAtTop = 1
-let g:CommandTMaxFiles = 5000
-let g:CommandTMaxHeight = 20
+
+" Hide version compatibility warning until neovim package updates.
+let g:go_version_warning = 0
 
 let g:fuzzy_ignore = '*.log'
 let g:fuzzy_matching_limit = 40
@@ -215,12 +213,6 @@ let g:tagbar_type_go = {
 " Put a space after comment character with nerdcommenter.
 let g:NERDSpaceDelims = 1
 
-" CtrlP options
-let g:ctrlp_map = '<Leader>t'
-let g:ctrlp_match_window_bottom = 0
-let g:ctrlp_match_window_reversed = 0
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)|tmp$|node_modules'
-
 " vim-airline options
 " let g:airline_left_sep = '▶'
 " let g:airline_right_sep = '◀'
@@ -228,22 +220,6 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)|tmp$|node_modules'
 " let g:airline_fugitive_prefix = '⎇ '
 " let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='bubblegum'
-
-" tmuxline.vim options
-" let g:airline#extensions#tmuxline#enabled = 0
-" let g:tmuxline_powerline_separators = 0
-let g:tmuxline_preset = 'full'
-
-    " \ 'left_alt': '⊳',
-    " \ 'right_alt' : '⊲',
-    " \ 'left_alt': '⏵',
-    " \ 'right_alt' : '⏴',
-let g:tmuxline_separators = {
-    \ 'left' : '',
-    \ 'left_alt': '⏵',
-    \ 'right' : '',
-    \ 'right_alt': '⏰',
-    \ 'space' : ' '}
 
 " vim-gitgutter options
 " let g:gitgutter_sign_column_always = 1
@@ -269,12 +245,8 @@ noremap ` '
 cmap w!! %!sudo tee > /dev/null %
 
 nnoremap <F1> :emenu <C-Z>
-" nnoremap <silent> <F2> :NERDTreeToggle<CR>
-" nnoremap <silent> <left> <ESC>:NERDTreeToggle<CR>
 nnoremap <Leader>f :NERDTreeToggle<CR>
 
-nnoremap <silent> <F4> :TagbarToggle<CR>
-nnoremap <silent> <right> <ESC>:TagbarToggle<CR>
 nnoremap <Leader>g :TagbarToggle<CR>
 
 " Clear highlighted search with <Leader>/
@@ -282,10 +254,6 @@ nnoremap <silent> <Leader>/ :let @/=""<CR>
 
 " Clear trailing whitespace (and clear the previous highlighted search).
 nnoremap <silent> <Leader>c :%s/\s\+$//ge<CR><Leader>/
-
-" Because Putty doesn't seem to pick up these keys.
-" nnoremap <Leader>n :NERDTreeToggle<CR>
-" nnoremap <Leader>m :TlistToggle<CR>
 
 nnoremap <C-t> :tabnew<CR>
 nnoremap <C-h> :tabp<CR>
@@ -307,19 +275,20 @@ nnoremap <Leader>P "+P<CR>
 nnoremap <Leader>gc :call NERDComment('nx', 'AlignLeft')<CR>
 vnoremap <Leader>gc :call NERDComment('nx', 'AlignLeft')<CR>
 
-nnoremap <Leader>b :CtrlPBuffer<CR>
+nnoremap <Leader>t :Files<CR>
+nnoremap <Leader>b :Buffers<CR>
 
 
 " syntax on
 syntax enable
 
 " CusorLine
-set cursorline
-let vimrc_cursorline_ctermbg = 8
-highlight cursorline cterm=none term=none
-execute "highlight cursorline cterm=none ctermfg=none ctermbg=".vimrc_cursorline_ctermbg
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
+" set cursorline
+" let vimrc_cursorline_ctermbg = 8
+" highlight cursorline cterm=none term=none
+" execute "highlight cursorline cterm=none ctermfg=none ctermbg=".vimrc_cursorline_ctermbg
+" autocmd WinEnter * setlocal cursorline
+" autocmd WinLeave * setlocal nocursorline
 
 " Highlight the 'DEBUG' word.
 highlight Debug ctermbg=red ctermfg=white guibg=red guifg=white
