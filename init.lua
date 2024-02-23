@@ -1,3 +1,6 @@
+--
+-- Plugins
+--
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -12,10 +15,24 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    dependencies = {
-      'nvim-lua/plenary.nvim'
+    'neovim/nvim-lspconfig',
+    {
+      'nvim-telescope/telescope.nvim',
+        dependencies = {
+          'nvim-lua/plenary.nvim'
+        },
     },
-    'nvim-telescope/telescope.nvim', tag = '0.1.5',
+    {
+      "hedyhli/outline.nvim",
+      config = function()
+        require("outline").setup({
+          outline_window = {
+            position = 'left',
+            auto_close = true,
+          }
+        })
+      end,
+    },
 }, {}) -- opts 2nd arg
 
 
@@ -50,3 +67,16 @@ keybind("n", "<Leader>s", ":w<CR>")
 keybind("n", "<Leader>S", ":wa<CR>")
 
 keybind("n", "<Leader>t", ":Telescope find_files<CR>")
+keybind("n", "<Leader>g", ":Outline<CR>")
+
+
+--
+-- Language Servers
+--
+local lspconfig = require('lspconfig')
+lspconfig.rust_analyzer.setup({})
+
+vim.keymap.set("n", "<Leader>h", vim.diagnostic.open_float)
+-- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+-- vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+-- vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
