@@ -19,6 +19,7 @@ require("lazy").setup({
     'nvim-treesitter/nvim-treesitter',
     'fatih/vim-go',
     'nvim-tree/nvim-web-devicons',
+    'Mofiqul/dracula.nvim',
     {
       "nvim-tree/nvim-tree.lua",
       version = "*",
@@ -73,7 +74,7 @@ require("lazy").setup({
 require('Comment').setup()
 require('nvim-treesitter.configs').setup({
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = { "go", "ruby", "html", "http", "json" },
+  ensure_installed = { "go", "ruby", "html", "http", "json", "python" },
 })
 
 
@@ -81,6 +82,8 @@ require('nvim-treesitter.configs').setup({
 -- Vim options
 --
 vim.g.mapleader = ","
+
+vim.cmd[[colorscheme dracula]]
 
 vim.opt.incsearch = false
 vim.opt.mouse = c
@@ -130,6 +133,7 @@ keybind("n", "<Leader>r", "<Plug>RestNvim")
 local lspconfig = require('lspconfig')
 lspconfig.rust_analyzer.setup({})
 lspconfig.gopls.setup({})
+lspconfig.pyright.setup({})
 
 vim.keymap.set("n", "<Leader>h", vim.diagnostic.open_float)
 -- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
