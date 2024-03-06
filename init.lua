@@ -19,7 +19,27 @@ require("lazy").setup({
     'nvim-treesitter/nvim-treesitter',
     'fatih/vim-go',
     'nvim-tree/nvim-web-devicons',
-    'Mofiqul/dracula.nvim',
+    {
+      'Mofiqul/dracula.nvim',
+      lazy = false,
+      priority = 1000,
+      config = function()
+        local dracula = require "dracula"
+
+        dracula.setup({
+          transparent = true,
+          plugins = {
+            ["nvim-treesitter"] = true,
+            ["nvim-lspconfig"] = true,
+            ["nvim-tree.lua"] = true,
+            ["lazy.nvim"] = true,
+            ["telescope.nvim"] = true,
+          },
+        })
+        vim.cmd.colorscheme 'dracula'
+        -- vim.cmd.colorscheme 'dracula-soft'
+      end
+    },
     {
       "nvim-tree/nvim-tree.lua",
       version = "*",
@@ -82,8 +102,6 @@ require('nvim-treesitter.configs').setup({
 -- Vim options
 --
 vim.g.mapleader = ","
-
-vim.cmd[[colorscheme dracula]]
 
 vim.opt.incsearch = false
 vim.opt.mouse = c
