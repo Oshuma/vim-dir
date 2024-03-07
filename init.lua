@@ -139,6 +139,8 @@ keybind("n", "<C-l>", ":tabnext<CR>")
 
 keybind("t", "<Esc>", [[<C-\><C-n>]])
 
+keybind("n", "<Leader>/", ":noh<CR>")
+
 keybind("n", "<Leader>t", ":Telescope find_files<CR>")
 keybind("n", "<Leader>f", ":NvimTreeToggle<CR>")
 keybind("n", "<Leader>g", ":Outline<CR>")
