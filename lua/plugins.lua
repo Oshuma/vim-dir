@@ -14,6 +14,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- TODO: This endless hash shit is getting stupid; extract it out.
 require("lazy").setup({
     'neovim/nvim-lspconfig',
     'fatih/vim-go',
@@ -108,12 +109,62 @@ require("lazy").setup({
       end
     },
     {
-      "rest-nvim/rest.nvim",
-      dependencies = { "nvim-lua/plenary.nvim" },
+      "rcarriga/nvim-notify",
       config = function()
-        require("rest-nvim").setup({
-          --- Get the same options from Packer setup
+        require("notify").setup({
+          timeout = 1000,
+          render = "compact",
+          stages = "static",
         })
       end
+    },
+    {
+      "folke/noice.nvim",
+      event = "VeryLazy",
+      dependencies = {
+        -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+        "MunifTanjim/nui.nvim",
+        -- OPTIONAL:
+        --   `nvim-notify` is only needed, if you want to use the notification view.
+        --   If not available, we use `mini` as the fallback
+        "rcarriga/nvim-notify",
+      },
+      config = function()
+        require("noice").setup({
+          lsp = {
+            -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+            override = {
+              ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+              ["vim.lsp.util.stylize_markdown"] = true,
+              -- ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+            },
+          },
+          presets = {
+            bottom_search = true, -- use a classic bottom cmdline for search
+            command_palette = false, -- position the cmdline and popupmenu together
+            long_message_to_split = true, -- long messages will be sent to a split
+            inc_rename = false, -- enables an input dialog for inc-rename.nvim
+            lsp_doc_border = false, -- add a border to hover docs and signature help
+          },
+          -- messages = {
+          --   enabled = false,
+          -- },
+        })
+      end
+    },
+    {
+      "jackMort/ChatGPT.nvim",
+      event = "VeryLazy",
+      config = function()
+        require("chatgpt").setup({
+          api_key_cmd = "echo $NVIM_OPENAPI_KEY",
+        })
+      end,
+      dependencies = {
+        "MunifTanjim/nui.nvim",
+        "nvim-lua/plenary.nvim",
+        "folke/trouble.nvim",
+        "nvim-telescope/telescope.nvim"
+      }
     },
 }, {}) -- opts 2nd arg

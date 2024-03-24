@@ -21,8 +21,9 @@ keybind("t", "<Esc>", [[<C-\><C-n>]])
 
 keybind("n", "<Leader>/", ":noh<CR>")
 
-keybind("n", "<Leader>t", ":Telescope find_files<CR>")
 keybind("n", "<Leader>f", ":NvimTreeToggle<CR>")
 keybind("n", "<Leader>g", ":Outline<CR>")
 
-keybind("n", "<Leader>r", "<Plug>RestNvim")
+keybind("n", "<Leader>t", ":Telescope find_files<CR>")
+keybind("n", "<Leader>b", ":Telescope buffers<CR>")
+keybind("n", "<Leader>c", ":Telescope commands<CR>")
