@@ -157,7 +157,7 @@ require("lazy").setup({
       event = "VeryLazy",
       config = function()
         require("chatgpt").setup({
-          api_key_cmd = "echo $NVIM_OPENAPI_KEY",
+          api_key_cmd = 'bw get notes NVIM_OPENAPI_KEY',
         })
       end,
       dependencies = {
@@ -168,3 +168,12 @@ require("lazy").setup({
       }
     },
 }, {}) -- opts 2nd arg
+
+-- Check for BW_SESSION environment variable.
+local function checkBWSession()
+  local bwSession = os.getenv("BW_SESSION")
+  if bwSession == nil then
+    require("notify")("BW_SESSION environment variable is not set. Bitwarden CLI may not work properly.", "error")
+  end
+end
+checkBWSession()
