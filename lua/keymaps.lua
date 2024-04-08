@@ -27,3 +27,15 @@ keybind("n", "<Leader>g", ":Outline<CR>")
 keybind("n", "<Leader>t", ":Telescope find_files<CR>")
 keybind("n", "<Leader>b", ":Telescope buffers<CR>")
 keybind("n", "<Leader>c", ":Telescope commands<CR>")
+
+
+--
+-- LSP keybinds
+--
+vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float)
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    vim.keymap.set("n", "<Leader>h", vim.lsp.buf.hover, { buffer = args.buf })
+  end,
+})

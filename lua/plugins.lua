@@ -158,6 +158,12 @@ require("lazy").setup({
       config = function()
         require("chatgpt").setup({
           api_key_cmd = 'bw get notes NVIM_OPENAPI_KEY',
+          openai_params = {
+            model = "gpt-4-turbo-preview",
+          },
+          openai_edit_params = {
+            model = "gpt-4-turbo-preview",
+          },
         })
       end,
       dependencies = {
