@@ -1,3 +1,14 @@
+-- Hide fold level numbers. Stolen from Reddit; fixed by JarvisGPT
+-- FIXME: Change relative number when folds are closed.
+local function get_fold(lnum)
+  if vim.fn.foldlevel(lnum) <= vim.fn.foldlevel(lnum - 1) then
+    return ' '
+  end
+  local fcs = vim.opt.fillchars:get()
+  local fold_sym = vim.fn.foldclosed(lnum) == -1 and fcs.foldopen or fcs.foldclose
+  return fold_sym
+end
+
 return {
   "kevinhwang91/nvim-ufo",
   dependencies = {
@@ -10,6 +21,23 @@ return {
     --         return {'treesitter', 'indent'}
     --     end
     -- })
+
+    vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+    vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+
+    _G.get_statuscol = function()
+      local current_line = vim.v.lnum
+      local cursor_line = vim.fn.line('.')
+      local relative_number = current_line - cursor_line
+      if current_line == cursor_line then
+        relative_number = cursor_line -- Display the absolute number on the current line
+      elseif relative_number < 0 then
+        relative_number = -relative_number -- Convert negative relative numbers to positive for lines above the cursor
+      end
+      return "%s" .. relative_number .. " " .. get_fold(current_line) .. " "
+    end
+
+    vim.o.statuscolumn = "%!v:lua.get_statuscol()"
 
     -- LSP
     local capabilities = vim.lsp.protocol.make_client_capabilities()
