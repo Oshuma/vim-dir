@@ -9,33 +9,41 @@ end
 keybind("n", "'", "`")
 keybind("n", "`", "'")
 
-keybind("n", "<Leader>s", ":w<CR>")
-keybind("n", "<Leader>S", ":wa<CR>")
-keybind("n", "<Leader>q", ":q<CR>")
+keybind("n", "<Leader>s", "<cmd>w<cr>")
+keybind("n", "<Leader>S", "<cmd>wa<cr>")
+keybind("n", "<Leader>q", "<cmd>q<cr>")
 
-keybind("n", "<C-t>", ":tabnew<CR>")
-keybind("n", "<C-h>", ":tabprev<CR>")
-keybind("n", "<C-l>", ":tabnext<CR>")
+keybind("n", "<C-t>", "<cmd>tabnew<cr>")
+keybind("n", "<C-h>", "<cmd>tabprev<cr>")
+keybind("n", "<C-l>", "<cmd>tabnext<cr>")
 
+keybind("n", "<Leader>/", "<cmd>noh<cr>")
+
+keybind("n", "<Leader>f", "<cmd>NvimTreeToggle<cr>")
+
+keybind("n", "<Leader>t", "<cmd>Telescope find_files<cr>")
+keybind("n", "<Leader>b", "<cmd>Telescope buffers<cr>")
+keybind("n", "<Leader>c", "<cmd>Telescope commands<cr>")
+
+-- fixes some terminal shit that I don't remember
 keybind("t", "<Esc>", [[<C-\><C-n>]])
-
-keybind("n", "<Leader>/", ":noh<CR>")
-
-keybind("n", "<Leader>f", ":NvimTreeToggle<CR>")
-keybind("n", "<Leader>g", ":Outline<CR>")
-
-keybind("n", "<Leader>t", ":Telescope find_files<CR>")
-keybind("n", "<Leader>b", ":Telescope buffers<CR>")
-keybind("n", "<Leader>c", ":Telescope commands<CR>")
 
 
 --
 -- LSP keybinds
 --
-vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float)
-
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
-    vim.keymap.set("n", "<Leader>h", vim.lsp.buf.hover, { buffer = args.buf })
+    -- show errors in current buffer
+    keybind("n", "<Leader>e", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>")
+
+    -- show symbols in current buffer
+    keybind("n", "<Leader>g", "<cmd>Trouble symbols toggle<cr>")
+
+    -- show references for symbol at cursor
+    keybind("n", "<Leader>r", "<cmd>Trouble lsp_references toggle<cr>")
+
+    -- find symbols at cursor
+    keybind("n", "<Leader>d", "<cmd>Trouble lsp toggle<cr>")
   end,
 })

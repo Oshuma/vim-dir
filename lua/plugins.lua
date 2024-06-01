@@ -18,16 +18,14 @@ require("lazy").setup({
     'neovim/nvim-lspconfig',
     'fatih/vim-go',
     'nvim-tree/nvim-web-devicons',
+
     require('plugins/nvim-treesitter'),
     require('plugins/lualine'),
     require('plugins/dracula'),
     require('plugins/nvim-tree'),
     require('plugins/telescope'),
-    require('plugins/outline'),
     require('plugins/comment'),
     require('plugins/nvim-surround'),
     require('plugins/nvim-notify'),
-    -- require('plugins/noice'),
-    -- require('plugins/nvim-ufo'),
-    -- require('plugins/chatgpt'),
+    require('plugins/trouble'),
 }, {}) -- opts 2nd arg
