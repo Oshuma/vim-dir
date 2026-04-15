@@ -1,8 +1,8 @@
 --
 -- Language Servers
 --
-local lspconfig = require('lspconfig')
-lspconfig.rust_analyzer.setup({})
-lspconfig.gopls.setup({})
-lspconfig.pyright.setup({})
-lspconfig.ruby_lsp.setup({})
+
+vim.lsp.enable('rust_analyzer')
+vim.lsp.enable('gopls')
+vim.lsp.enable('pyright')
+vim.lsp.enable('ruby_lsp')
