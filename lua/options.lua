@@ -4,7 +4,7 @@
 vim.g.mapleader = ","
 
 vim.opt.incsearch = false
-vim.opt.mouse = c
+vim.opt.mouse = "c"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.showmatch = true
