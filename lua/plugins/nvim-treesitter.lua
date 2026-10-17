@@ -1,9 +1,29 @@
 return {
-  'nvim-treesitter/nvim-treesitter',
+  "nvim-treesitter/nvim-treesitter",
+  branch = "main",
+  lazy = false, -- the main branch doesn't support lazy-loading
+  build = ":TSUpdate",
   config = function()
-    require('nvim-treesitter.configs').setup({
-      -- A list of parser names, or "all" (the five listed parsers should always be installed)
-      ensure_installed = { "go", "ruby", "html", "http", "json", "python", "markdown", "markdown_inline" },
+    local ts = require("nvim-treesitter")
+
+    -- Replaces `ensure_installed`
+    ts.install({
+      "go", "ruby", "python", "bash",
+      "lua", "vim", "vimdoc",
+      "html", "http", "json",
+      "markdown", "markdown_inline"
     })
-  end
+
+    -- Replaces `highlight = { enable = true }` and `indent = { enable = true }`
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function(args)
+        if pcall(vim.treesitter.start, args.buf) then
+          vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+          -- optional treesitter folding:
+          -- vim.wo.foldmethod = "expr"
+          -- vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+        end
+      end,
+    })
+  end,
 }
