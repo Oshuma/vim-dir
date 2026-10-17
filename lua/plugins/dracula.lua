@@ -6,14 +6,7 @@ return {
     local dracula = require "dracula"
 
     dracula.setup({
-      transparent = true,
-      plugins = {
-        ["nvim-treesitter"] = true,
-        ["nvim-lspconfig"] = true,
-        ["nvim-tree.lua"] = true,
-        ["lazy.nvim"] = true,
-        ["telescope.nvim"] = true,
-      },
+      transparent_bg = true,
     })
     vim.cmd.colorscheme 'dracula'
     -- vim.cmd.colorscheme 'dracula-soft'

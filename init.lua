@@ -1,4 +1,4 @@
+require('options') -- must load before plugins so mapleader is set
 require('plugins')
-require('options')
 require('keymaps')
 require('lsp')

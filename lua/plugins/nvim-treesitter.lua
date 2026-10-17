@@ -20,8 +20,8 @@ return {
         if pcall(vim.treesitter.start, args.buf) then
           vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
           -- optional treesitter folding:
-          -- vim.wo.foldmethod = "expr"
-          -- vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+          -- vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+          -- vim.wo[0][0].foldmethod = "expr"
         end
       end,
     })
